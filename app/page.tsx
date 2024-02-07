@@ -40,7 +40,7 @@ const POST_DETAILS = [
 
 const Home: React.FC = () => {
   return (
-    <>
+    <Layout>
       <Navbar />
       <Row gutter={[24,24]}>
       <Col span={5} offset={1}>
@@ -66,7 +66,7 @@ const Home: React.FC = () => {
         <Card>wowow</Card>
       </Col>
       </Row>
-    </>
+    </Layout>
   );
 }
 
