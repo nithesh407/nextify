@@ -1,0 +1,63 @@
+.header {
+  display: flex !important;
+  background-color: white;
+  height: 60px;
+  box-shadow: 0px 2px 8px 0px #F0F1F2;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+.logoContainer {
+  display: flex;
+  min-width: 64px;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerNav {
+  flex: 1 1 0%;
+  height: 100%;
+}
+
+.navMenu {
+  height: 100%;
+  border-bottom: none;
+  align-items: center;
+  float: right;
+  // min-width: 600px;
+
+  li {
+    span {
+      font-size: 14px !important;
+    }
+  }
+
+}
+
+
+
+.rightMenu {
+  min-width: 280px;
+  float: right;
+  height: 64px;
+  justify-content: flex-end;
+  align-items: center;
+  flex-shrink: 0;
+  display: flex;
+
+  .rightMenuItem {
+    height: 64px;
+    cursor: pointer;
+    float: right;
+    padding: 0px 0px;
+
+    a {
+      color: inherit !important;
+    }
+
+    &:hover {
+      background-color: white;
+    }
+
+  }
+}
