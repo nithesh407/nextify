@@ -1,7 +1,9 @@
 "use client"
-import { Navbar, Post, CreatePost } from "@/ui/components"
-import { Layout, Col, Row, Card } from "antd";
+
 import React from "react";
+import { Layout, Col, Row, Card } from "antd";
+
+import { Navbar, Post, CreatePost,HomeProfile } from "@/ui/components"
 
 const POST_DETAILS = [
   {
@@ -44,7 +46,16 @@ const Home: React.FC = () => {
       <Navbar />
       <Row style={{ marginTop: 15 }}>
         <Col span={6} offset={1}>
-          <Card>wowow</Card>
+          <HomeProfile
+            profileName="Lana Del rey"
+            profileTag="@lanadelrey.idk"
+            profileImage="https://imgv3.fotor.com/images/slider-image/A-clear-close-up-photo-of-a-woman.jpg"
+            profileDescription="I'm passionate in singing. I like the way I'm. Going through the flow"
+            linkedInURL=""
+            githubURL=""
+            twitterURL=""
+            instagramURL=""
+          />
         </Col>
         <Col span={10} offset={.5}>
           <Layout>
