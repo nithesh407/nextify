@@ -46,8 +46,8 @@ const Post: React.FC<PostType> = ({ avatarProfileName, avatarImage, image, comme
               size: 'small',
             }}
             actions={[
-              <p><LikeOutlined /> <span>{likesCount}</span></p>,
-              <p><CommentOutlined /> <span>{commentsCount}</span></p>,
+              <div ><LikeOutlined /> <span>{likesCount}</span></div>,
+              <div><CommentOutlined /> <span>{commentsCount}</span></div>,
             ]}
           >
             <div className={styles.imageContainer}>
