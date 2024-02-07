@@ -24,7 +24,7 @@ const Home: React.FC = () => {
                     borderRadius: borderRadiusLG,
                   }}
                 >
-                  <Post username="pradeep" avatarUrl="sddd" content="wowo" imageUrl="dkdd"/>
+                  <Post/>
                 </div>
               </Content>
               <Footer style={{ textAlign: 'center' }}>
