@@ -5,18 +5,18 @@ import styles from './Post.module.scss'; // Import the SCSS file
 import { useState } from 'react';
 
 const { Content } = Layout;
-const {Paragraph} = Typography;
+const { Paragraph } = Typography;
 
 type PostType = {
   avatarProfileName: string,
   avatarImage: string,
   image: string,
-  description:string,
+  description: string,
   likesCount: number,
   commentsCount: number,
 }
 
-const Post: React.FC<PostType> = ({ avatarProfileName, avatarImage, image,description, commentsCount, likesCount }) => {
+const Post: React.FC<PostType> = ({ avatarProfileName, avatarImage, image, description, commentsCount, likesCount }) => {
 
   const [rows, setRows] = useState(1);
   const {
@@ -42,7 +42,7 @@ const Post: React.FC<PostType> = ({ avatarProfileName, avatarImage, image,descri
             borderRadius: borderRadiusLG,
           }}
         >
-          
+
           <Card
             className={styles.cardContainer} // Use the imported styles
             tabList={avatar}
@@ -63,12 +63,12 @@ const Post: React.FC<PostType> = ({ avatarProfileName, avatarImage, image,descri
               />
             </div>
             <Paragraph
-                ellipsis={{
-                  rows,
-                  expandable: true,
-                }}
-              >
-                {description}
+              ellipsis={{
+                rows,
+                expandable: true,
+              }}
+            >
+              {description}
             </Paragraph>
           </Card>
         </div>
