@@ -1,24 +1,28 @@
-import React, { useState } from 'react';
-import { Avatar, Card, Layout, theme } from 'antd';
-import { CommentOutlined, LikeOutlined, MenuOutlined, SaveOutlined } from '@ant-design/icons';
+
+import { Avatar, Card, Layout, Slider, Typography, theme } from 'antd';
+import { CommentOutlined, LikeOutlined, MenuOutlined } from '@ant-design/icons';
 import styles from './Post.module.scss'; // Import the SCSS file
+import { useState } from 'react';
 
 const { Content } = Layout;
+const {Paragraph} = Typography;
 
 type PostType = {
   avatarProfileName: string,
   avatarImage: string,
   image: string,
+  description:string,
   likesCount: number,
-  commentsCount: number
+  commentsCount: number,
 }
 
-const Post: React.FC<PostType> = ({ avatarProfileName, avatarImage, image, commentsCount, likesCount }) => {
+const Post: React.FC<PostType> = ({ avatarProfileName, avatarImage, image,description, commentsCount, likesCount }) => {
 
-
+  const [rows, setRows] = useState(1);
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+
   const avatar = [
     {
       key: avatarProfileName,
@@ -29,7 +33,7 @@ const Post: React.FC<PostType> = ({ avatarProfileName, avatarImage, image, comme
 
   return (
     <>
-      <Content style={{ margin: '10px 10px 0', overflow: 'initial', width: '50%', alignSelf: "center" }}>
+      <Content style={{ margin: '10px 10px', overflow: 'initial', width: '90%', alignSelf: "center" }}>
         <div
           style={{
             padding: 24,
@@ -38,6 +42,7 @@ const Post: React.FC<PostType> = ({ avatarProfileName, avatarImage, image, comme
             borderRadius: borderRadiusLG,
           }}
         >
+          
           <Card
             className={styles.cardContainer} // Use the imported styles
             tabList={avatar}
@@ -57,6 +62,14 @@ const Post: React.FC<PostType> = ({ avatarProfileName, avatarImage, image, comme
                 src={image}
               />
             </div>
+            <Paragraph
+                ellipsis={{
+                  rows,
+                  expandable: true,
+                }}
+              >
+                {description}
+            </Paragraph>
           </Card>
         </div>
       </Content>
