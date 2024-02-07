@@ -1,10 +1,10 @@
-
-
 .header {
   display: flex !important;
   background-color: white;
-  height: 64px;
+  height: 60px;
   box-shadow: 0px 2px 8px 0px #F0F1F2;
+  padding-right: 40px;
+  padding-left: 40px;
 }
 
 .logoContainer {
@@ -22,10 +22,14 @@
 .navMenu {
   height: 100%;
   border-bottom: none;
+  align-items: center;
+  float: right;
+  // min-width: 600px;
+
   li {
     span {
       font-size: 14px !important;
-        }
+    }
   }
 
 }
@@ -40,19 +44,19 @@
   align-items: center;
   flex-shrink: 0;
   display: flex;
+
   .rightMenuItem {
     height: 64px;
     cursor: pointer;
     float: right;
-    padding: 0px 12px;
-      a {
-        color: inherit !important;
-      }
-      &:hover {
-        background-color: rgba(0,0,0,.025);
-      }
-    &:nth-child(2) {
-      padding: 0px 13px;
+    padding: 0px 0px;
+
+    a {
+      color: inherit !important;
+    }
+
+    &:hover {
+      background-color: white;
     }
 
   }
