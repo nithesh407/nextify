@@ -1,14 +1,16 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import logo from "@/ui/images/icon.png"
 import {
-    Menu, Input
+    Menu, Badge, Layout, Input, AutoComplete,
 } from "antd";
 import {
     SettingOutlined,
+    NotificationOutlined,
+    ToolOutlined,
     UserOutlined,
+    QuestionCircleOutlined,
     BellOutlined,
     HomeOutlined,
     GlobalOutlined,
@@ -18,8 +20,11 @@ import {
 import { useRouter, usePathname } from "next/navigation";
 import { MenuItemType } from "antd/lib/menu/hooks/useItems";
 
+import logo from '@/ui/images/icon.png'
 import styles from "./navbar.module.scss";
+import { USERS } from "@/util/DUMMY_DATA";
 
+import { Search } from "..";
 
 const menuItems: MenuItemType[] = [
     {
@@ -49,10 +54,13 @@ const menuItems: MenuItemType[] = [
 ];
 
 
-
-const Navbar: React.FC = () => {
+const Navbar: React.FC = ({ }) => {
     const router = useRouter();
     const pathname = usePathname() as string;
+
+    const handleSelect = (data: any) => {
+        console.log('Selected:', data);
+    };
 
     useEffect(() => {
         Object.keys(menuItems).forEach((item) => {
@@ -71,7 +79,7 @@ const Navbar: React.FC = () => {
                 />
             </div>
             <div className={styles.search}>
-                <Input style={{ height: 35 }} placeholder="Search" prefix={<SearchOutlined />} />
+                <Search data={USERS} onSelect={handleSelect} placeholder="Global Search" />
             </div>
             <div className={styles.headerNav}>
                 <Menu
@@ -80,7 +88,6 @@ const Navbar: React.FC = () => {
                     selectedKeys={[pathname]}
                     onSelect={(item) => router.push(item.key)}
                     items={menuItems}
-                    defaultOpenKeys={["Dashboard"]}
                 />
             </div>
         </div>
