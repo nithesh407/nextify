@@ -4,6 +4,7 @@ import React from "react";
 import { Layout, Col, Row, Card } from "antd";
 
 import { Navbar, Post, CreatePost, HomeProfile, HomeCalender } from "@/ui/components"
+import CreatePostModal from "@/ui/Modals/CreatePostModal/CreatePostModal";
 
 const POST_DETAILS = [
   {
