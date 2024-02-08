@@ -3,7 +3,7 @@
 import React from "react";
 import { Layout, Col, Row, Card } from "antd";
 
-import { Navbar, Post, CreatePost,HomeProfile } from "@/ui/components"
+import { Navbar, Post, CreatePost, HomeProfile, HomeCalender } from "@/ui/components"
 
 const POST_DETAILS = [
   {
@@ -74,7 +74,10 @@ const Home: React.FC = () => {
           </Layout>
         </Col>
         <Col span={6} offset={.5}>
-          <Card>wowow</Card>
+          {/* <Card></Card> */}
+          <div style={{ position: "sticky", top: 10 }}>
+            <HomeCalender />
+          </div>
         </Col>
       </Row>
     </Layout>

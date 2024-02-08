@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { FloatButtonComponent } from "@/ui/components";
 import React from 'react';
 
 export const metadata: Metadata = {
@@ -12,7 +13,11 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: React.PropsWithChildren) => (
   <html lang="en">
     <body>
-      <AntdRegistry>{children}</AntdRegistry>
+      <AntdRegistry>
+        {children}
+        <FloatButtonComponent />
+      </AntdRegistry>
+
     </body>
   </html>
 );

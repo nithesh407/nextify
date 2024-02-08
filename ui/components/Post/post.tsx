@@ -1,3 +1,4 @@
+'use client';
 
 import { Avatar, Card, Layout, Slider, Typography, theme } from 'antd';
 import { CommentOutlined, LikeOutlined, MenuOutlined } from '@ant-design/icons';
