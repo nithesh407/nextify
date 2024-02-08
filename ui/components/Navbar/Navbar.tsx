@@ -54,7 +54,7 @@ const menuItems: MenuItemType[] = [
 ];
 
 
-const Navbar: React.FC = ({}) => {
+const Navbar: React.FC = ({ }) => {
     const router = useRouter();
     const pathname = usePathname() as string;
 
@@ -80,6 +80,8 @@ const Navbar: React.FC = ({}) => {
             </div>
             <div className={styles.search}>
                 <Search data={USERS} onSelect={handleSelect} placeholder="Global Search"/>
+
+                <Search data={USERS} onSelect={handleSelect} placeholder="Global Search" />
             </div>
             <div className={styles.headerNav}>
                 <Menu
