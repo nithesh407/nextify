@@ -7,14 +7,10 @@ import {
 } from "antd";
 import {
     SettingOutlined,
-    NotificationOutlined,
-    ToolOutlined,
     UserOutlined,
-    QuestionCircleOutlined,
     BellOutlined,
     HomeOutlined,
     GlobalOutlined,
-    SearchOutlined,
 } from "@ant-design/icons";
 
 import { useRouter, usePathname } from "next/navigation";
@@ -79,8 +75,6 @@ const Navbar: React.FC = ({ }) => {
                 />
             </div>
             <div className={styles.search}>
-                <Search data={USERS} onSelect={handleSelect} placeholder="Global Search"/>
-
                 <Search data={USERS} onSelect={handleSelect} placeholder="Global Search" />
             </div>
             <div className={styles.headerNav}>
