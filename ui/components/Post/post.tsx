@@ -47,7 +47,7 @@ const Post: React.FC<PostType> = ({ avatarProfileName, avatarImage, image, descr
           <Card
             className={styles.cardContainer} // Use the imported styles
             tabList={avatar}
-            tabBarExtraContent={<MenuOutlined />}
+            tabBarExtraContent={<a><MenuOutlined /></a>}
             tabProps={{
               size: 'small',
             }}

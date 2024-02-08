@@ -23,8 +23,8 @@ const Createpost: React.FC<{ profile: string }> = ({ profile }) => {
                     <Button
                         size="large"
                         shape="round"
-                        type="text"
-                        style={{ backgroundColor: '#D3D3D3', width: '85%' }}
+                        type="primary"
+                        style={{ width: '85%' }}
                         onClick={handleCreatePostClick}
                     >
                         Create a post
