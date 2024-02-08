@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-    Menu, Badge, Layout,
+    Menu, Badge, Layout, Input,
 } from "antd";
 import {
     SettingOutlined,
@@ -15,6 +15,7 @@ import {
     BellOutlined,
     HomeOutlined,
     GlobalOutlined,
+    SearchOutlined,
 } from "@ant-design/icons";
 
 import { useRouter, usePathname } from "next/navigation";
@@ -72,6 +73,9 @@ const Navbar: React.FC = () => {
                     height={32}
                     alt="Logo"
                 />
+            </div>
+            <div className={styles.search}>
+                <Input size="large" placeholder="Search" prefix={<SearchOutlined />} />
             </div>
             <div className={styles.headerNav}>
                 <Menu
