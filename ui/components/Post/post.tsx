@@ -34,7 +34,7 @@ const Post: React.FC<PostType> = ({ avatarProfileName, avatarImage, image, descr
 
   return (
     <>
-      <Content style={{ margin: '10px 10px', overflow: 'initial', width: '90%', alignSelf: "center" }}>
+      <Content style={{ marginTop: 10, overflow: 'initial', width: '90%', alignSelf: "center" }}>
         <div
           style={{
             padding: 24,

@@ -1,3 +1,5 @@
+'use client';
+
 import type { Dayjs } from 'dayjs';
 import React from 'react';
 import { Calendar, theme } from 'antd';

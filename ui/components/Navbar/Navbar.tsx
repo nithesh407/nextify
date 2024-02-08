@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import Image from "next/image";
+import logo from "@/ui/images/icon.png"
 import Link from "next/link";
 import {
     Menu, Badge, Layout, Input,
@@ -68,7 +69,7 @@ const Navbar: React.FC = () => {
         <div className={styles.header}>
             <div className={styles.logoContainer}>
                 <Image
-                    src="https://seekicon.com/free-icon-download/network_4.svg"
+                    src={logo}
                     width={32}
                     height={32}
                     alt="Logo"
@@ -84,6 +85,7 @@ const Navbar: React.FC = () => {
                     selectedKeys={[pathname]}
                     onSelect={(item) => router.push(item.key)}
                     items={menuItems}
+                    defaultOpenKeys={["Dashboard"]}
                 />
             </div>
         </div>
