@@ -3,16 +3,12 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import logo from "@/ui/images/icon.png"
-import Link from "next/link";
 import {
-    Menu, Badge, Layout, Input,
+    Menu, Input
 } from "antd";
 import {
     SettingOutlined,
-    NotificationOutlined,
-    ToolOutlined,
     UserOutlined,
-    QuestionCircleOutlined,
     BellOutlined,
     HomeOutlined,
     GlobalOutlined,
@@ -24,7 +20,6 @@ import { MenuItemType } from "antd/lib/menu/hooks/useItems";
 
 import styles from "./navbar.module.scss";
 
-const { Header } = Layout;
 
 const menuItems: MenuItemType[] = [
     {
