@@ -79,6 +79,8 @@ const Navbar: React.FC = ({ }) => {
                 />
             </div>
             <div className={styles.search}>
+                <Search data={USERS} onSelect={handleSelect} placeholder="Global Search"/>
+
                 <Search data={USERS} onSelect={handleSelect} placeholder="Global Search" />
             </div>
             <div className={styles.headerNav}>

@@ -69,7 +69,6 @@ const Dashboard: React.FC = () => {
                 </>
             </Col>
             <Col span={6} offset={.5}>
-                {/* <Card></Card> */}
                 <div style={{ position: "sticky", top: 10 }}>
                     <HomeCalender />
                 </div>
