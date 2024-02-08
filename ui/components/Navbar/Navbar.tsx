@@ -75,7 +75,7 @@ const Navbar: React.FC = () => {
                 />
             </div>
             <div className={styles.search}>
-                <Input size="large" placeholder="Search" prefix={<SearchOutlined />} />
+                <Input style={{ height: 35 }} placeholder="Search" prefix={<SearchOutlined />} />
             </div>
             <div className={styles.headerNav}>
                 <Menu
