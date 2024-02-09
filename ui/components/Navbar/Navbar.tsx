@@ -66,6 +66,7 @@ const Navbar: React.FC = ({ }) => {
     }, []);
 
     return (
+
         <Header style={{ 
         backgroundColor: 'white', 
         height: '60 px', 

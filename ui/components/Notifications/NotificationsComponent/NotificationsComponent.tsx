@@ -5,6 +5,7 @@ import React from 'react';
 import { Avatar, Card, List, Space } from 'antd';
 
 const data = Array.from({ length: 6 }).map((_, i) => ({
+
     href: 'https://ant.design',
     title: `ant design part ${i}`,
     avatar: `https://api.dicebear.com/7.x/miniavs/svg?seed=${i}`,
@@ -20,6 +21,7 @@ const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
 );
 
 const NotificationsComponent: React.FC = () => (
+
     <Card style={{ width: '90%', alignSelf: 'center', position:'relative', top:10 }}>
         <div style={{ height: '65vh', overflowY: 'scroll' }}>
             <List
@@ -50,3 +52,4 @@ const NotificationsComponent: React.FC = () => (
 );
 
 export default NotificationsComponent;
+

@@ -1,5 +1,6 @@
 import Navbar from "./Navbar/Navbar";
-import Post from "./Dashboard/PostsComponent/PostsComponent";
+
+import PostsComponent from "./Dashboard/PostsComponent/PostsComponent";
 import CreatePost from "./Dashboard/CreatePost/CreatePost";
 import HomeProfile from "./Dashboard/HomeProfile/HomeProfile";
 import HomeCalender from "./Dashboard/HomeCalender/HomeCalender";
@@ -12,7 +13,7 @@ import NotificationsCategory from "./Notifications/NotificationsCategory/Notific
 export {
     Navbar,
     HomeProfile,
-    Post,
+    PostsComponent,
     CreatePost,
     HomeCalender,
     FloatButtonComponent,

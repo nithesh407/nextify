@@ -1,6 +1,8 @@
+
 'use client';
 
 import { Avatar, Card, Layout, Slider, Typography, theme } from 'antd';
+
 import { CommentOutlined, LikeOutlined, MenuOutlined } from '@ant-design/icons';
 import styles from './postsComponent.module.scss';
 import { useState } from 'react';
@@ -37,8 +39,11 @@ const PostsComponent: React.FC<PostType> = ({ avatarProfileName, avatarImage, im
       <Content style={{ marginTop: 10, overflow: 'initial', width: '90%', alignSelf: "center" }}>
         <div
           style={{
-            padding: 24,
-            textAlign: 'center',
+
+            // padding: 14,
+            width: '100%',
+            // textAlign: 'center',
+
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
           }}
@@ -47,6 +52,9 @@ const PostsComponent: React.FC<PostType> = ({ avatarProfileName, avatarImage, im
           <Card
             className={styles.cardContainer} // Use the imported styles
             tabList={avatar}
+
+            activeTabKey={null as unknown as string}
+
             tabBarExtraContent={<a><MenuOutlined /></a>}
             tabProps={{
               size: 'small',
@@ -55,22 +63,23 @@ const PostsComponent: React.FC<PostType> = ({ avatarProfileName, avatarImage, im
               <div ><LikeOutlined /> <span>{likesCount}</span></div>,
               <div><CommentOutlined /> <span>{commentsCount}</span></div>,
             ]}
+
+            style={{ height: '100%' }} // Ensure the Card occupies the full height
           >
-            <div className={styles.imageContainer}>
+            <div className={styles.paraContainer}>
+              <Paragraph ellipsis={{ rows: 2, expandable: true, symbol: 'see more' }}>
+                {description}
+              </Paragraph>
+            </div>
+            <div className={styles.imageContainer} style={{ height: '100%' }}> {/* Set imageContainer to fill the Card */}
               <img
                 className={styles.postImage}
                 alt={avatarProfileName}
                 src={image}
+
+              // style={{ height: '100%', objectFit: 'cover' }} // Ensure the image fills the container
               />
             </div>
-            <Paragraph
-              ellipsis={{
-                rows,
-                expandable: true,
-              }}
-            >
-              {description}
-            </Paragraph>
           </Card>
         </div>
       </Content>

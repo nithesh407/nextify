@@ -19,7 +19,6 @@ type homeprofiletype = {
 const HomeProfile: React.FC<homeprofiletype> = ({ profileName, profileTag, profileDescription, profileImage, linkedInURL, githubURL, twitterURL, instagramURL }) => {
     return (
         <Card
-            
             actions={[
                 <LinkedinFilled style={{ color: 'dark blue' }} src={linkedInURL} />,
                 <GithubFilled style={{ color: 'dark grey' }} src={githubURL} />,
