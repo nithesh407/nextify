@@ -1,4 +1,5 @@
 import Navbar from "./Navbar/Navbar";
+
 import PostsComponent from "./Dashboard/PostsComponent/PostsComponent";
 import CreatePost from "./Dashboard/CreatePost/CreatePost";
 import HomeProfile from "./Dashboard/HomeProfile/HomeProfile";

@@ -36,12 +36,14 @@ const Search:React.FC<Props>=({data,placeholder,onSelect})=>{
         <AutoComplete
             value={value}
             options={options}
-            style={{ width: 200 }}
+            style={{ width: 250 }}
             onSelect={onSelect}
             onSearch={onChange}
             onChange={onChange}
             placeholder={placeholder}
             suffixIcon={<SearchOutlined/>}
+            notFoundContent={<></>}
+            variant="filled"
         />
     )
 }
