@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Avatar, Card } from "antd";
 import Meta from "antd/es/card/Meta";
-import { GithubFilled, InstagramFilled, LinkedinFilled, TwitterOutlined, YoutubeFilled } from "@ant-design/icons";
+import { GithubFilled, InstagramFilled, LinkedinFilled, TwitterOutlined } from "@ant-design/icons";
 
 import coverImg from '@/public/cover.jpg'
 
@@ -28,6 +28,7 @@ const HomeProfile: React.FC<homeprofiletype> = ({ profileName, profileTag, profi
             cover={
                 <Image height={120} src={coverImg} alt={"coverImage"}></Image>
             }
+
         >
             <Meta
                 style={{ display: 'flex', flexDirection: 'column', marginTop: -75, alignItems: 'center' }}

@@ -65,7 +65,7 @@ const Navbar: React.FC = ({ }) => {
     }, []);
 
     return (
-        <div className={styles.header}>
+        <div style={{ display: 'flex', backgroundColor: 'white', height: '60px', padding: '0 40px 0 40px', position: 'sticky' }}>
             <div className={styles.logoContainer}>
                 <Image
                     src={logo}
