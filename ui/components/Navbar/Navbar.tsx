@@ -7,14 +7,10 @@ import {
 } from "antd";
 import {
     SettingOutlined,
-    NotificationOutlined,
-    ToolOutlined,
     UserOutlined,
-    QuestionCircleOutlined,
     BellOutlined,
     HomeOutlined,
     GlobalOutlined,
-    SearchOutlined,
 } from "@ant-design/icons";
 
 import { useRouter, usePathname } from "next/navigation";
@@ -25,6 +21,7 @@ import styles from "./navbar.module.scss";
 import { USERS } from "@/util/DUMMY_DATA";
 
 import { Search } from "..";
+import { Header } from "antd/es/layout/layout";
 
 const menuItems: MenuItemType[] = [
     {
@@ -69,7 +66,15 @@ const Navbar: React.FC = ({ }) => {
     }, []);
 
     return (
-        <div className={styles.header}>
+        <Header style={{ 
+        backgroundColor: 'white', 
+        height: '60 px', 
+        padding: '0 40px 0 40px' , 
+        position: 'sticky',
+        top: 0,
+        zIndex: 1,
+        display: 'flex',
+        alignItems: 'center'}}>
             <div className={styles.logoContainer}>
                 <Image
                     src={logo}
@@ -79,7 +84,7 @@ const Navbar: React.FC = ({ }) => {
                 />
             </div>
             <div className={styles.search}>
-                <Search data={USERS} onSelect={handleSelect} placeholder="Global Search"/>
+                <Search data={USERS} onSelect={handleSelect} placeholder="Global Search" />
             </div>
             <div className={styles.headerNav}>
                 <Menu
@@ -90,7 +95,7 @@ const Navbar: React.FC = ({ }) => {
                     items={menuItems}
                 />
             </div>
-        </div>
+        </Header>
     );
 };
 

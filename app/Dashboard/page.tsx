@@ -39,8 +39,10 @@ const POST_DETAILS = [
 
 const Dashboard: React.FC = () => {
     return (
-        <Row style={{ marginTop: 15 }}>
-            <Col span={6} offset={1}>
+        <Layout>
+            <Row style={{ marginTop: 15 }}>
+            <Col span={5} offset={1}>
+                <div style={{position:'sticky', top:80}}>
                 <HomeProfile
                     profileName="Lana Del rey"
                     profileTag="@lanadelrey.idk"
@@ -51,8 +53,9 @@ const Dashboard: React.FC = () => {
                     twitterURL=""
                     instagramURL=""
                 />
+                </div>
             </Col>
-            <Col span={10} offset={1}>
+            <Col span={12} offset={1}>
                 <>
                     <CreatePost profile={POST_DETAILS[0].avatarImage} />
                     {POST_DETAILS.map((post, index) => (
@@ -68,12 +71,13 @@ const Dashboard: React.FC = () => {
                     ))}
                 </>
             </Col>
-            <Col span={6} offset={.5}>
-                <div style={{ position: "sticky", top: 10 }}>
+            <Col span={5} style={{ marginLeft: '-50px' }}>
+                <div style={{position:'sticky', top:80}}>
                     <HomeCalender />
                 </div>
             </Col>
         </Row>
+        </Layout>
     )
 }
 
