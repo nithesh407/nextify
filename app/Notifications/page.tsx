@@ -1,4 +1,4 @@
-import { NotificationsComponent, NotificationsSettings, NotificationsStatistics, NotificationsCategory } from "@/ui/components";
+import { NotificationsSettings, NotificationsStatistics, NotificationsWrapper } from "@/ui/components";
 
 import { Row, Col, Layout, Card } from "antd";
 import React from "react";
@@ -14,11 +14,12 @@ const Notifications: React.FC = () => {
                 </div>
             </Col>
             <Col span={13} offset={1}>
-                <div style={{ position: "sticky", top: 80 }}>
+                {/* <div style={{ position: "sticky", top: 80 }}>
 
                     <NotificationsCategory />
                 </div>
-                <NotificationsComponent />
+                <NotificationsComponent /> */}
+                <NotificationsWrapper />
             </Col>
             <Col span={5} style={{ marginLeft: '-50px' }} >
                 <div style={{ position: "sticky", top: 80 }}>
