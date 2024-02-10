@@ -1,16 +1,20 @@
 import React from "react";
-import ConnectionsPeopleComponent from "./ConnectionsPeopleComponent";
-import { List } from "antd";
+import ConnectionsPeopleComponent from "./ConnectionsPeopleComponent/ConnectionsPeopleComponent";
+import { List, Flex } from "antd";
+import styles from './connectionsPeople.module.scss' // Import CSS file for styling
 
 const ConnectionsPeople: React.FC = () => {
     return (
         <List>
-            <div style={{ height: '89vh', overflowY: 'scroll' }}>
-
+            <Flex vertical gap={20} className={styles.scrollableContainer} >
                 <ConnectionsPeopleComponent />
                 <ConnectionsPeopleComponent />
                 <ConnectionsPeopleComponent />
-            </div>
+                <ConnectionsPeopleComponent />
+                <ConnectionsPeopleComponent />
+                <ConnectionsPeopleComponent />
+                <ConnectionsPeopleComponent />
+            </Flex>
         </List>
     )
 }

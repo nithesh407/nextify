@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Avatar, Card, List, message, Spin } from 'antd'; // Import Spin component for loading state
-import VirtualList from 'rc-virtual-list';
-
+import React, { useEffect, useState, useRef } from 'react';
+import { Avatar, Card, List, Spin } from 'antd';
+import styles from './connectionsComponent.module.scss'
 interface UserItem {
     email: string;
     gender: string;
@@ -23,45 +22,50 @@ interface T {
     category: string
 }
 
-
 const ContainerHeight = 400;
 
 const ConnectionsComponent: React.FC<T> = ({ category }) => {
     const fakeDataUrl = 'https://randomuser.me/api/?results=20&inc=name,gender,phone,nat,picture&noinfo'
-    // const fakeDataUrl = category === 'following' ? 'https://randomuser.me/api/?results=20&inc=name,gender,phone,nat,picture&noinfo' : 'https://jsonplaceholder.typicode.com/users'
     const [data, setData] = useState<UserItem[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const containerRef = useRef<HTMLDivElement>(null);
 
     const appendData = () => {
         fetch(fakeDataUrl)
             .then((res) => res.json())
             .then((body) => {
-                setData((data) => data.concat(body.results));
+                setData(body.results);
+                setLoading(false);
             });
-    };
+    }
 
     useEffect(() => {
         appendData()
-    }, []);
+    }, [category]);
 
-    const onScroll = (e: React.UIEvent<HTMLElement, UIEvent>) => {
-        if (Math.abs(e.currentTarget.scrollHeight - e.currentTarget.scrollTop - ContainerHeight) <= 1) {
-            appendData();
+    const handleScroll = () => {
+        const container = containerRef.current;
+        if (container) {
+            const { scrollTop, scrollHeight, clientHeight } = container;
+            if (Math.abs(scrollHeight - scrollTop - clientHeight) <= 1) {
+                setLoading(true);
+                appendData();
+            }
         }
     };
 
     return (
         <Card style={{ width: '90%', alignSelf: 'center', position: 'relative', top: 10 }}>
-
-            <List>
-                <VirtualList
-                    data={data}
-                    height={ContainerHeight}
-                    itemHeight={47}
-                    itemKey="phone"
-                    onScroll={onScroll}
-                // onLoad={() => <Spin />}
-                >
-                    {(item: UserItem) => (
+            <div
+                ref={containerRef}
+                className={styles['scrollable-list']}
+                style={{ height: ContainerHeight, overflowY: 'scroll', overflowX: 'hidden' }}
+                onScroll={handleScroll}
+            >
+                <List
+                    loading={loading}
+                    dataSource={data}
+                    renderItem={(item: UserItem) => (
                         <List.Item key={item.phone}>
                             <List.Item.Meta
                                 avatar={<Avatar style={{ width: 50, height: 50 }} src={item.picture.large} />}
@@ -71,8 +75,8 @@ const ConnectionsComponent: React.FC<T> = ({ category }) => {
                             <div>{category === 'following' ? 'Following' : 'Follower'}</div>
                         </List.Item>
                     )}
-                </VirtualList>
-            </List>
+                />
+            </div>
         </Card>
     );
 };
