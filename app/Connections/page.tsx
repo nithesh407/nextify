@@ -18,16 +18,15 @@ const Connections: React.FC = () => {
         setconnectionsCategory(value)
     }
     const appendData = () => {
-        setLoading(true)
         fetch(fakeDataUrl)
             .then((res) => res.json())
             .then((body) => {
                 setData(body.results);
                 setLoading(false);
             });
-        setLoading(false)
     }
     useEffect(() => {
+        setLoading(true)
         appendData()
     }, [connectionsCategory]);
     return (
