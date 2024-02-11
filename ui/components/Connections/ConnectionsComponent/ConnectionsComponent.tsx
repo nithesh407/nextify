@@ -1,47 +1,23 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { Avatar, Card, List, Spin } from 'antd';
+'use client'
+
+import React, { useRef } from 'react';
+import { Avatar, Card, List } from 'antd';
 import styles from './connectionsComponent.module.scss'
-interface UserItem {
-    email: string;
-    gender: string;
-    name: {
-        first: string;
-        last: string;
-        title: string;
-    };
-    nat: string;
-    picture: {
-        large: string;
-        medium: string;
-        thumbnail: string;
-    };
-    phone: string
-}
+import { UserItem } from '@/util';
+
 
 interface T {
-    category: string
+    category: string;
+    data: UserItem[];
+    loading: boolean;
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+    appendData: () => void;
 }
 
 const ContainerHeight = 400;
 
-const ConnectionsComponent: React.FC<T> = ({ category }) => {
-    const fakeDataUrl = 'https://randomuser.me/api/?results=20&inc=name,gender,phone,nat,picture&noinfo'
-    const [data, setData] = useState<UserItem[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
+const ConnectionsComponent: React.FC<T> = ({ category, appendData, data, loading, setLoading }) => {
     const containerRef = useRef<HTMLDivElement>(null);
-
-    const appendData = () => {
-        fetch(fakeDataUrl)
-            .then((res) => res.json())
-            .then((body) => {
-                setData(body.results);
-                setLoading(false);
-            });
-    }
-
-    useEffect(() => {
-        appendData()
-    }, [category]);
 
     const handleScroll = () => {
         const container = containerRef.current;
@@ -66,11 +42,11 @@ const ConnectionsComponent: React.FC<T> = ({ category }) => {
                     loading={loading}
                     dataSource={data}
                     renderItem={(item: UserItem) => (
-                        <List.Item key={item.phone}>
+                        <List.Item key={item.email}>
                             <List.Item.Meta
                                 avatar={<Avatar style={{ width: 50, height: 50 }} src={item.picture.large} />}
                                 title={<a href="https://ant.design">{item.name.last}</a>}
-                                description={item.phone}
+                                description={item.email}
                             />
                             <div>{category === 'following' ? 'Following' : 'Follower'}</div>
                         </List.Item>

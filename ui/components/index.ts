@@ -8,9 +8,11 @@ import FloatButtonComponent from "./FloatButtonComponent/FloatButtonComponent";
 import Search from "./Search/Search";
 import NotificationsSettings from "./Notifications/NotificationsSettings/NotificationsSettings";
 import NotificationsStatistics from "./Notifications/NotificationsStatistics/NotificationsStatistics";
+import NotificationsCategory from "./Notifications/NotificationsCategory/NotificationsCategory";
+import NotificationsComponent from "./Notifications/NotificationsComponent/NotificationsComponent";
 import ConnectionsSettings from "./Connections/ConnectionsSettings/ConnectionsSettings";
-import NotificationsWrapper from "./Notifications/NotificationsWrapper";
-import ConnectionsWrapper from "./Connections/ConnectionsWrapper";
+import ConnectionsComponent from "./Connections/ConnectionsComponent/ConnectionsComponent";
+import ConnectionsCategory from "./Connections/ConnectionsCategory/ConnectionsCategory";
 import ConnectionsPeople from "./Connections/ConnectionsPeople/ConnectionsPeople";
 export {
     Navbar,
@@ -22,8 +24,10 @@ export {
     Search,
     NotificationsSettings,
     NotificationsStatistics,
+    NotificationsCategory,
+    NotificationsComponent,
     ConnectionsSettings,
-    NotificationsWrapper,
-    ConnectionsWrapper,
-    ConnectionsPeople
+    ConnectionsPeople,
+    ConnectionsCategory,
+    ConnectionsComponent
 }

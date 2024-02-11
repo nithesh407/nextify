@@ -271,6 +271,59 @@ const POST_DETAILS = [
 ]
 
 
+const data = Array.from({ length: 6 }).map((_, i) => ({
+    href: 'https://ant.design',
+    title: `ant design part ${i}`,
+    avatar: `https://api.dicebear.com/7.x/miniavs/svg?seed=${i}`,
+    description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.'
+}));
+
+const dataPosts = Array.from({ length: 6 }).map((_, i) => ({
+    href: 'https://ant.design',
+    title: `ant design part for Posts ${i}`,
+    avatar: `https://api.dicebear.com/7.x/miniavs/svg?seed=${i}`,
+    description: 'Post Ant Design, a design language for background applications, is refined by Ant UED Team.'
+}));
 
 
-export { USERS, POST_DETAILS };
+const ConnectionsProfileComponentData = [
+    {
+        profileName: 'Kendall',
+        avatarImage: "https://imgv3.fotor.com/images/slider-image/A-clear-close-up-photo-of-a-woman.jpg",
+        profession: 'Full Stack Web Developer',
+        oranization: 'Kongu Enginnering College'
+    },
+    {
+        profileName: 'Kyle',
+        avatarImage: "https://utahpulse.com/wp-content/uploads/2021/05/JoJo-Hottest-Female-Singers-in-the-world.jpg",
+        profession: 'Android App Developer',
+        oranization: 'PSG College of Engineering'
+    },
+    {
+        profileName: 'Hannah',
+        avatarImage: "https://lyricstranslate.com/files/styles/medium/public/244230003_404316441060733_7404775693723537522_n.jpg",
+        profession: 'Entrepreneur',
+        oranization: 'Krishnammal College of Engineering'
+    },
+    {
+        profileName: 'Rose',
+        avatarImage: "https://imgv3.fotor.com/images/slider-image/A-clear-close-up-photo-of-a-woman.jpg",
+        profession: 'UI/UX Designer',
+        oranization: 'Kumaraguru College of Engineering'
+    },
+    {
+        profileName: 'Taylor',
+        avatarImage: "https://utahpulse.com/wp-content/uploads/2021/05/JoJo-Hottest-Female-Singers-in-the-world.jpg",
+        profession: 'Data Analyst',
+        oranization: 'Sri Krishna College of Engineering'
+    },
+    {
+        profileName: 'Gal Gadot',
+        avatarImage: "https://imgv3.fotor.com/images/slider-image/A-clear-close-up-photo-of-a-woman.jpg",
+        profession: 'Front-End Developer',
+        oranization: 'Nandha Engineering College'
+    }
+]
+
+
+export { USERS, POST_DETAILS, data, dataPosts, ConnectionsProfileComponentData };
