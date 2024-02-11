@@ -5,7 +5,6 @@ import HomeProfile from "./Dashboard/HomeProfile/HomeProfile";
 import HomeCalender from "./Dashboard/HomeCalender/HomeCalender";
 import FloatButtonComponent from "./FloatButtonComponent/FloatButtonComponent";
 import Search from "./Search/Search";
-import NotificationsComponent from "./Notifications/NotificationsComponent/NotificationsComponent";
 import NotificationsSettings from "./Notifications/NotificationsSettings/NotificationsSettings";
 import NotificationsStatistics from "./Notifications/NotificationsStatistics/NotificationsStatistics";
 import NotificationsCategory from "./Notifications/NotificationsCategory/NotificationsCategory";
@@ -31,9 +30,7 @@ export {
     ProfileUtil,
     ProfileActivity,
     ProfileEducation,
-    ProfileSkills
-    FloatButtonComponent,
-    Search,
+    ProfileSkills,
     NotificationsSettings,
     NotificationsStatistics,
     NotificationsCategory,
