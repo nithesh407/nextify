@@ -32,7 +32,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "ui/components/Profile/ProfileEducation"  ],
   "exclude": [
     "node_modules"
   ]
