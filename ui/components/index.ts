@@ -6,20 +6,38 @@ import HomeProfile from "./Dashboard/HomeProfile/HomeProfile";
 import HomeCalender from "./Dashboard/HomeCalender/HomeCalender";
 import FloatButtonComponent from "./FloatButtonComponent/FloatButtonComponent";
 import Search from "./Search/Search";
+
+
 import NotificationsComponent from "./Notifications/NotificationsComponent/NotificationsComponent";
 import NotificationsSettings from "./Notifications/NotificationsSettings/NotificationsSettings";
 import NotificationsStatistics from "./Notifications/NotificationsStatistics/NotificationsStatistics";
 import NotificationsCategory from "./Notifications/NotificationsCategory/NotificationsCategory";
+
+
+import ProfileComponent from "./Profile/ProfileComponent";
+import ProfileUtil from "./Profile/ProfileUtil/ProfileUtil";
+import ProfileActivity from "./Profile/ProfileActivity/ProfileActivity";
+import ProfileEducation from "./Profile/ProfileEducation/ProfileEducation";
+import ProfileSkills from "./Profile/ProfileSkills/ProfleSkills";
+
 export {
     Navbar,
+    FloatButtonComponent,
+    Search,
+
     HomeProfile,
     PostsComponent,
     CreatePost,
     HomeCalender,
-    FloatButtonComponent,
-    Search,
+
     NotificationsComponent,
     NotificationsSettings,
     NotificationsStatistics,
-    NotificationsCategory
+    NotificationsCategory,
+    
+    ProfileComponent,
+    ProfileUtil,
+    ProfileActivity,
+    ProfileEducation,
+    ProfileSkills
 }

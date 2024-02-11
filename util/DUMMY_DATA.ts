@@ -1,12 +1,9 @@
-
-
-
-
 const USERS = [
     {
         "id": 1,
         "name": "Leanne Graham",
         "username": "Bret",
+        "image": "https://www.befunky.com/images/prismic/1f427434-7ca0-46b2-b5d1-7d31843859b6_funky-focus-red-flower-field-after.jpeg?auto=avif,webp&format=jpg&width=863",
         "email": "Sincere@april.biz",
         "address": {
             "street": "Kulas Light",
@@ -30,6 +27,7 @@ const USERS = [
         "id": 2,
         "name": "Ervin Howell",
         "username": "Antonette",
+        "image": "https://i.ytimg.com/vi_webp/viimfQi_pUw/hqdefault.webp",
         "email": "Shanna@melissa.tv",
         "address": {
             "street": "Victor Plains",
@@ -53,6 +51,7 @@ const USERS = [
         "id": 3,
         "name": "Clementine Bauch",
         "username": "Samantha",
+        "image": "https://glaminati.com/wp-content/uploads/2016/07/beautiful-women-with-flowers-6-334x500.jpg",
         "email": "Nathan@yesenia.net",
         "address": {
             "street": "Douglas Extension",
@@ -76,6 +75,7 @@ const USERS = [
         "id": 4,
         "name": "Patricia Lebsack",
         "username": "Karianne",
+        "image": "https://glaminati.com/wp-content/uploads/2016/07/beautiful-women-with-flowers-6-334x500.jpg",
         "email": "Julianne.OConner@kory.org",
         "address": {
             "street": "Hoeger Mall",
@@ -99,6 +99,7 @@ const USERS = [
         "id": 5,
         "name": "Chelsey Dietrich",
         "username": "Kamren",
+        "image": "https://glaminati.com/wp-content/uploads/2016/07/beautiful-women-with-flowers-6-334x500.jpg",
         "email": "Lucio_Hettinger@annie.ca",
         "address": {
             "street": "Skiles Walks",
@@ -122,6 +123,7 @@ const USERS = [
         "id": 6,
         "name": "Mrs. Dennis Schulist",
         "username": "Leopoldo_Corkery",
+        "image": "https://glaminati.com/wp-content/uploads/2016/07/beautiful-women-with-flowers-6-334x500.jpg",
         "email": "Karley_Dach@jasper.info",
         "address": {
             "street": "Norberto Crossing",
@@ -145,6 +147,7 @@ const USERS = [
         "id": 7,
         "name": "Kurtis Weissnat",
         "username": "Elwyn.Skiles",
+        "image": "https://glaminati.com/wp-content/uploads/2016/07/beautiful-women-with-flowers-6-334x500.jpg",
         "email": "Telly.Hoeger@billy.biz",
         "address": {
             "street": "Rex Trail",
@@ -168,6 +171,7 @@ const USERS = [
         "id": 8,
         "name": "Nicholas Runolfsdottir V",
         "username": "Maxime_Nienow",
+        "image": "https://imgix.ranker.com/list_img_v2/11363/691363/original/691363-u3?auto=format&q=50&fit=crop&fm=pjpg&dpr=2&crop=faces&h=185.86387434554973&w=355",
         "email": "Sherwood@rosamond.me",
         "address": {
             "street": "Ellsworth Summit",
@@ -191,6 +195,7 @@ const USERS = [
         "id": 9,
         "name": "Glenna Reichert",
         "username": "Delphine",
+        "image": "https://glaminati.com/wp-content/uploads/2016/07/beautiful-women-with-flowers-6-334x500.jpg",
         "email": "Chaim_McDermott@dana.io",
         "address": {
             "street": "Dayna Park",
@@ -214,6 +219,7 @@ const USERS = [
         "id": 10,
         "name": "Clementina DuBuque",
         "username": "Moriah.Stanton",
+        "image": "https://glaminati.com/wp-content/uploads/2016/07/beautiful-women-with-flowers-6-334x500.jpg",
         "email": "Rey.Padberg@karina.biz",
         "address": {
             "street": "Kattie Turnpike",
@@ -235,6 +241,25 @@ const USERS = [
     }
 ]
 
+const POST_DETAILS = [
+    {
+        avatarProfileName: 'Rose',
+        avatarImage: "https://imgv3.fotor.com/images/slider-image/A-clear-close-up-photo-of-a-woman.jpg",
+        image: "https://www.befunky.com/images/prismic/1f427434-7ca0-46b2-b5d1-7d31843859b6_funky-focus-red-flower-field-after.jpeg?auto=avif,webp&format=jpg&width=863",
+        description: "Enjoy the life to the fullest !In california with my partner !Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis fuga illum illo. Placeat odit ut nulla accusamus iusto quaerat harum incidunt repudiandae, quasi labore, eaque inventore! Eius sequi assumenda aspernatur recusandae beatae fugiat incidunt alias laboriosam corrupti rem suscipit perferendis natus consequuntur esse enim quidem perspiciatis, optio delectus sapiente ea excepturi minus, hic provident. Perspiciatis facilis nihil repellendus explicabo dolorem!",
+        likesCount: 500,
+        commentsCount: 15
+    },
+    {
+        avatarProfileName: 'Kendall',
+        avatarImage: "https://imgv3.fotor.com/images/slider-image/A-clear-close-up-photo-of-a-woman.jpg",
+        image: "https://glaminati.com/wp-content/uploads/2016/07/beautiful-women-with-flowers-6-334x500.jpg",
+        description: "Enjoy the life to the fullest !In california with my partner !Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis fuga illum illo. Placeat odit ut nulla accusamus iusto quaerat harum incidunt repudiandae, quasi labore, eaque inventore! Eius sequi assumenda aspernatur recusandae beatae fugiat incidunt alias laboriosam corrupti rem suscipit perferendis natus consequuntur esse enim quidem perspiciatis, optio delectus sapiente ea excepturi minus, hic provident. Perspiciatis facilis nihil repellendus explicabo dolorem!",
+        likesCount: 877,
+        commentsCount: 13
+    }
+]
 
 
-export {USERS};
+export {USERS,POST_DETAILS};
+
