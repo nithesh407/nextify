@@ -1,29 +1,22 @@
-'use client';
-
 import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
 import React from 'react';
 import { Avatar, Card, List, Space } from 'antd';
+import styles from './notificationsComponent.module.scss'; // Import SCSS module
 
-const data = Array.from({ length: 6 }).map((_, i) => ({
+interface NotificationItem {
+    href: string,
+    title: string,
+    avatar: string,
+    description: string
+}
 
-    href: 'https://ant.design',
-    title: `ant design part ${i}`,
-    avatar: `https://api.dicebear.com/7.x/miniavs/svg?seed=${i}`,
-    description:
-        'Ant Design, a design language for background applications, is refined by Ant UED Team.'
-}));
+interface NotificationComponentsProps {
+    data: NotificationItem[]
+}
 
-const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
-    <Space>
-        {React.createElement(icon)}
-        {text}
-    </Space>
-);
-
-const NotificationsComponent: React.FC = () => (
-
-    <Card style={{ width: '90%', alignSelf: 'center', position:'relative', top:10 }}>
-        <div style={{ height: '65vh', overflowY: 'scroll' }}>
+const NotificationsComponent: React.FC<NotificationComponentsProps> = ({ data }) => (
+    <Card className={styles['notifications-card']}>
+        <div className={styles['list-container']}>
             <List
                 itemLayout="vertical"
                 size="large"
@@ -52,4 +45,3 @@ const NotificationsComponent: React.FC = () => (
 );
 
 export default NotificationsComponent;
-
