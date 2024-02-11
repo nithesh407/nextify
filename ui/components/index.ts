@@ -6,10 +6,14 @@ import HomeProfile from "./Dashboard/HomeProfile/HomeProfile";
 import HomeCalender from "./Dashboard/HomeCalender/HomeCalender";
 import FloatButtonComponent from "./FloatButtonComponent/FloatButtonComponent";
 import Search from "./Search/Search";
-import NotificationsComponent from "./Notifications/NotificationsComponent/NotificationsComponent";
 import NotificationsSettings from "./Notifications/NotificationsSettings/NotificationsSettings";
 import NotificationsStatistics from "./Notifications/NotificationsStatistics/NotificationsStatistics";
 import NotificationsCategory from "./Notifications/NotificationsCategory/NotificationsCategory";
+import NotificationsComponent from "./Notifications/NotificationsComponent/NotificationsComponent";
+import ConnectionsSettings from "./Connections/ConnectionsSettings/ConnectionsSettings";
+import ConnectionsComponent from "./Connections/ConnectionsComponent/ConnectionsComponent";
+import ConnectionsCategory from "./Connections/ConnectionsCategory/ConnectionsCategory";
+import ConnectionsPeople from "./Connections/ConnectionsPeople/ConnectionsPeople";
 export {
     Navbar,
     HomeProfile,
@@ -18,8 +22,12 @@ export {
     HomeCalender,
     FloatButtonComponent,
     Search,
-    NotificationsComponent,
     NotificationsSettings,
     NotificationsStatistics,
-    NotificationsCategory
+    NotificationsCategory,
+    NotificationsComponent,
+    ConnectionsSettings,
+    ConnectionsPeople,
+    ConnectionsCategory,
+    ConnectionsComponent
 }

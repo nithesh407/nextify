@@ -235,6 +235,95 @@ const USERS = [
     }
 ]
 
+const POST_DETAILS = [
+    {
+        avatarProfileName: 'Rose',
+        avatarImage: "https://imgv3.fotor.com/images/slider-image/A-clear-close-up-photo-of-a-woman.jpg",
+        image: "https://www.befunky.com/images/prismic/1f427434-7ca0-46b2-b5d1-7d31843859b6_funky-focus-red-flower-field-after.jpeg?auto=avif,webp&format=jpg&width=863",
+        description: "Slayed",
+        likesCount: 500,
+        commentsCount: 15
+    },
+    {
+        avatarProfileName: 'Hannah',
+        avatarImage: "https://utahpulse.com/wp-content/uploads/2021/05/JoJo-Hottest-Female-Singers-in-the-world.jpg",
+        image: "https://imgix.ranker.com/list_img_v2/11363/691363/original/691363-u3?auto=format&q=50&fit=crop&fm=pjpg&dpr=2&crop=faces&h=185.86387434554973&w=355",
+        description: "how is it ?",
+        likesCount: 300,
+        commentsCount: 19
+    },
+    {
+        avatarProfileName: 'Lexi',
+        avatarImage: "https://lyricstranslate.com/files/styles/medium/public/244230003_404316441060733_7404775693723537522_n.jpg",
+        image: "https://i.ytimg.com/vi_webp/viimfQi_pUw/hqdefault.webp",
+        description: "wowww !",
+        likesCount: 296,
+        commentsCount: 42
+    },
+    {
+        avatarProfileName: 'Kendall',
+        avatarImage: "https://imgv3.fotor.com/images/slider-image/A-clear-close-up-photo-of-a-woman.jpg",
+        image: "https://glaminati.com/wp-content/uploads/2016/07/beautiful-women-with-flowers-6-334x500.jpg",
+        description: "Enjoy the life to the fullest !In california with my partner !Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis fuga illum illo. Placeat odit ut nulla accusamus iusto quaerat harum incidunt repudiandae, quasi labore, eaque inventore! Eius sequi assumenda aspernatur recusandae beatae fugiat incidunt alias laboriosam corrupti rem suscipit perferendis natus consequuntur esse enim quidem perspiciatis, optio delectus sapiente ea excepturi minus, hic provident. Perspiciatis facilis nihil repellendus explicabo dolorem!",
+        likesCount: 877,
+        commentsCount: 13
+    }
+]
 
 
-export {USERS};
+const data = Array.from({ length: 6 }).map((_, i) => ({
+    href: 'https://ant.design',
+    title: `ant design part ${i}`,
+    avatar: `https://api.dicebear.com/7.x/miniavs/svg?seed=${i}`,
+    description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.'
+}));
+
+const dataPosts = Array.from({ length: 6 }).map((_, i) => ({
+    href: 'https://ant.design',
+    title: `ant design part for Posts ${i}`,
+    avatar: `https://api.dicebear.com/7.x/miniavs/svg?seed=${i}`,
+    description: 'Post Ant Design, a design language for background applications, is refined by Ant UED Team.'
+}));
+
+
+const ConnectionsProfileComponentData = [
+    {
+        profileName: 'Kendall',
+        avatarImage: "https://imgv3.fotor.com/images/slider-image/A-clear-close-up-photo-of-a-woman.jpg",
+        profession: 'Full Stack Web Developer',
+        oranization: 'Kongu Enginnering College'
+    },
+    {
+        profileName: 'Kyle',
+        avatarImage: "https://utahpulse.com/wp-content/uploads/2021/05/JoJo-Hottest-Female-Singers-in-the-world.jpg",
+        profession: 'Android App Developer',
+        oranization: 'PSG College of Engineering'
+    },
+    {
+        profileName: 'Hannah',
+        avatarImage: "https://lyricstranslate.com/files/styles/medium/public/244230003_404316441060733_7404775693723537522_n.jpg",
+        profession: 'Entrepreneur',
+        oranization: 'Krishnammal College of Engineering'
+    },
+    {
+        profileName: 'Rose',
+        avatarImage: "https://imgv3.fotor.com/images/slider-image/A-clear-close-up-photo-of-a-woman.jpg",
+        profession: 'UI/UX Designer',
+        oranization: 'Kumaraguru College of Engineering'
+    },
+    {
+        profileName: 'Taylor',
+        avatarImage: "https://utahpulse.com/wp-content/uploads/2021/05/JoJo-Hottest-Female-Singers-in-the-world.jpg",
+        profession: 'Data Analyst',
+        oranization: 'Sri Krishna College of Engineering'
+    },
+    {
+        profileName: 'Gal Gadot',
+        avatarImage: "https://imgv3.fotor.com/images/slider-image/A-clear-close-up-photo-of-a-woman.jpg",
+        profession: 'Front-End Developer',
+        oranization: 'Nandha Engineering College'
+    }
+]
+
+
+export { USERS, POST_DETAILS, data, dataPosts, ConnectionsProfileComponentData };
