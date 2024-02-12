@@ -18,6 +18,11 @@ import ProfileUtil from "./Profile/ProfileUtil/ProfileUtil";
 import ProfileActivity from "./Profile/ProfileActivity/ProfileActivity";
 import ProfileEducation from "./Profile/ProfileEducation/ProfileEducation";
 import ProfileSkills from "./Profile/ProfileSkills/ProfleSkills";
+import SettingsSiderComponent from "./Settings/SettingsSiderComponent/SettingsSiderComponent";
+import SettingsAccountComponent from "./Settings/SettingsAccountComponent/SettingsAccountComponent";
+import SettingsSigninComponent from "./Settings/SettingsSigninComponent/SettingsSigninComponent";
+import SettingsConnectionsComponent from "./Settings/SettingsConnectionsComponent/SettingsConnectionsComponent";
+import SettingsThemeComponent from "./Settings/SettingsThemeComponent/SettingsThemeComponent";
 export {
     Navbar,
     FloatButtonComponent,
@@ -38,5 +43,10 @@ export {
     ConnectionsSettings,
     ConnectionsPeople,
     ConnectionsCategory,
-    ConnectionsComponent
+    ConnectionsComponent,
+    SettingsSiderComponent,
+    SettingsAccountComponent,
+    SettingsSigninComponent,
+    SettingsConnectionsComponent,
+    SettingsThemeComponent
 }

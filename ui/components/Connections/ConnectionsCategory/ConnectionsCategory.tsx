@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Button, Card, Flex } from 'antd';
+
 import { UserOutlined } from '@ant-design/icons';
 
 type ConnectionsCategoryProps = {

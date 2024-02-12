@@ -45,7 +45,7 @@ const menuItems: MenuItemType[] = [
         label: "Profile",
     },
     {
-        key: "/Settings",
+        key: "/Settings/Account",
         icon: <SettingOutlined />,
     },
 ];
@@ -67,15 +67,16 @@ const Navbar: React.FC = ({ }) => {
 
     return (
 
-        <Header style={{ 
-        backgroundColor: 'white', 
-        height: '60 px', 
-        padding: '0 40px 0 40px' , 
-        position: 'sticky',
-        top: 0,
-        zIndex: 1,
-        display: 'flex',
-        alignItems: 'center'}}>
+        <Header style={{
+            backgroundColor: 'white',
+            height: '60 px',
+            padding: '0 40px 0 40px',
+            position: 'sticky',
+            top: 0,
+            zIndex: 1,
+            display: 'flex',
+            alignItems: 'center'
+        }}>
             <div className={styles.logoContainer}>
                 <Image
                     src={logo}
