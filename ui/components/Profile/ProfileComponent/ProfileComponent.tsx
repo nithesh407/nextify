@@ -1,11 +1,10 @@
 "use client"
-import { Image,Avatar, Button, Card, Flex, QRCode, Typography } from "antd";
+import { Image, Button, Card, Flex, QRCode, Typography } from "antd";
 import Meta from "antd/es/card/Meta";
 import {  EditOutlined, GithubFilled, InstagramFilled, LinkedinFilled, TwitterOutlined } from "@ant-design/icons";
 
 import coverImg from '@/public/cover.jpg'
 import logo from '@/ui/images/icon.png';
-import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 const {Text,Title, Paragraph}=Typography
@@ -27,17 +26,8 @@ type profiletype = {
 
 const ProfileComponent: React.FC<profiletype> = ({ profileName, profileTag,profileRole,profileLocation,profileURL,profileOrg, profileDescription, profileImage, linkedInURL, githubURL, twitterURL, instagramURL }) => {
     
-    const [modalOpen, setModalOpen] = useState(false);
     const router=useRouter();
 
-    const showModal = () => {
-        setModalOpen(true); // Use router from props
-      };
-    
-      const closeModal = () => {
-        setModalOpen(false);
-      };
-      
     
     return (
         <Card
@@ -61,7 +51,7 @@ const ProfileComponent: React.FC<profiletype> = ({ profileName, profileTag,profi
                 }
             />
 
-            <Button type="text" shape="circle" href="/Profile/gytfugj/edit" style={{float:'right', marginTop:'-40px',height:'35px',width:'35px' }} icon={<EditOutlined style={{fontSize:'25px'}} />}/>
+            <Button type="text" shape="circle" onClick={()=>router.push("/Profile/gytfugj/edit")} style={{float:'right', marginTop:'-40px',height:'35px',width:'35px' }} icon={<EditOutlined style={{fontSize:'25px'}} />}/>
             
 
             <Flex align="center">
