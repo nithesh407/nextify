@@ -13,11 +13,12 @@ import ConnectionsSettings from "./Connections/ConnectionsSettings/ConnectionsSe
 import ConnectionsComponent from "./Connections/ConnectionsComponent/ConnectionsComponent";
 import ConnectionsCategory from "./Connections/ConnectionsCategory/ConnectionsCategory";
 import ConnectionsPeople from "./Connections/ConnectionsPeople/ConnectionsPeople";
-import ProfileComponent from "./Profile/ProfileComponent";
+import ProfileComponent from "./Profile/ProfileComponent/ProfileComponent";
 import ProfileUtil from "./Profile/ProfileUtil/ProfileUtil";
 import ProfileActivity from "./Profile/ProfileActivity/ProfileActivity";
 import ProfileEducation from "./Profile/ProfileEducation/ProfileEducation";
 import ProfileSkills from "./Profile/ProfileSkills/ProfleSkills";
+import EditProfileForm from "./Profile/EditProfileForm/EditProfileForm";
 export {
     Navbar,
     FloatButtonComponent,
@@ -31,6 +32,7 @@ export {
     ProfileActivity,
     ProfileEducation,
     ProfileSkills,
+    EditProfileForm,
     NotificationsSettings,
     NotificationsStatistics,
     NotificationsCategory,
