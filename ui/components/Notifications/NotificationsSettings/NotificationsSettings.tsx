@@ -6,7 +6,7 @@ import Link from 'next/link';
 const NotificationsSettings: React.FC = () => (
     <Space direction="vertical" size={16}>
         <Card title="Manage Notifications" extra={<SettingOutlined />} style={{ width: 235 }}>
-            <Link href="#">Notifications Settings</Link>
+            <Link href="/Settings/Notifications">Notifications Settings</Link>
         </Card>
     </Space>
 );

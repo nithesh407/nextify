@@ -6,7 +6,7 @@ import Link from 'next/link';
 const ConnectionsSettings: React.FC = () => (
     <Space direction="vertical" size={16}>
         <Card title="Manage Connections" extra={<SettingOutlined />} style={{ width: 235 }}>
-            <Link href="#">Connection Settings</Link>
+            <Link href="/Settings/Connections">Connection Settings</Link>
         </Card>
     </Space>
 );
