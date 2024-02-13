@@ -40,7 +40,7 @@ const menuItems: MenuItemType[] = [
         label: "Notifications",
     },
     {
-        key: "/Profile",
+        key: "/Profile/gytfugj",
         icon: <UserOutlined />,
         label: "Profile",
     },
