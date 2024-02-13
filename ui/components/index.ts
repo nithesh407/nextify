@@ -32,6 +32,9 @@ import SettingsPasswordComponent from "./Settings/SettingsPasswordComponent/Sett
 import SettingsSuggestByComponent from "./Settings/SettingsSuggestByComponent/SettingsSuggestByComponent";
 import SettingsTwoStepComponent from "./Settings/SettingsTwoStepComponent/SettingsTwoStepComponent";
 import SettingsNotificationsComponent from "./Settings/SettingsNotificationsComponent/SettingsNotificationsComponent";
+import Error403 from "./ErrorComponents/Error403";
+import Error404 from "./ErrorComponents/Error404";
+import Error500 from "./ErrorComponents/Error500";
 export {
     Navbar,
     FloatButtonComponent,
@@ -66,5 +69,8 @@ export {
     SettingsPasswordComponent,
     SettingsSuggestByComponent,
     SettingsTwoStepComponent,
-    SettingsNotificationsComponent
+    SettingsNotificationsComponent,
+    Error403,
+    Error404,
+    Error500
 }

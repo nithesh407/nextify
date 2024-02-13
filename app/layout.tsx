@@ -4,6 +4,8 @@ import { AntdRegistry } from '@ant-design/nextjs-registry';
 import Layout from "antd/es/layout/layout";
 import { FloatButtonComponent, Navbar } from "@/ui/components";
 import React from 'react';
+import Loading from "./loading";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Nextify",
@@ -16,7 +18,9 @@ const RootLayout = ({ children }: React.PropsWithChildren) => (
     <body>
       <AntdRegistry>
         <Navbar />
-        {children}
+        <Suspense fallback={<Loading />}>
+          {children}
+        </Suspense>
         <FloatButtonComponent />
       </AntdRegistry>
     </body>
