@@ -1,6 +1,6 @@
 'use client'
 
-import { UserOutlined, GlobalOutlined, BellOutlined, MoonOutlined, LockOutlined } from "@ant-design/icons";
+import { UserOutlined, GlobalOutlined, MoonOutlined, LockOutlined, BellOutlined } from "@ant-design/icons";
 import { Avatar, Menu, theme } from "antd"
 import Sider from "antd/es/layout/Sider"
 import React, { useEffect, useState } from "react";
@@ -25,6 +25,11 @@ const items = [
         key: "4",
         icon: <MoonOutlined />,
         label: "Theme"
+    },
+    {
+        key: "5",
+        icon: <BellOutlined />,
+        label: "Notifications"
     }
 ];
 
@@ -34,7 +39,7 @@ const SettingsSiderComponent: React.FC<{ router: any }> = ({ router }) => {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
 
-    const initialSelectedKey = localStorage.getItem("selectedKey") || "1";
+    const initialSelectedKey = typeof window !== 'undefined' ? localStorage.getItem("selectedKey") || "1" : "1";
     const [selectedKey, setSelectedKey] = useState<string>(initialSelectedKey);
 
     useEffect(() => {

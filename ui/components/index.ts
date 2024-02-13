@@ -23,6 +23,15 @@ import SettingsAccountComponent from "./Settings/SettingsAccountComponent/Settin
 import SettingsSigninComponent from "./Settings/SettingsSigninComponent/SettingsSigninComponent";
 import SettingsConnectionsComponent from "./Settings/SettingsConnectionsComponent/SettingsConnectionsComponent";
 import SettingsThemeComponent from "./Settings/SettingsThemeComponent/SettingsThemeComponent";
+import SettingsVerifyComponent from "./Settings/SettingsVerifyComponent/SettingsVerifyComponent";
+import SettingsHibernateComponent from "./Settings/SettingsHibernateComponent/SettingsHibernateComponent";
+import SettingsCloseComponent from "./Settings/SettingsCloseComponent/SettingsCloseComponent";
+import SettingsEmailComponent from "./Settings/SettingsEmailComponent/SettingsEmailComponent";
+import SettingsPhoneComponent from "./Settings/SettingsPhoneComponent/SettingsPhoneComponent";
+import SettingsPasswordComponent from "./Settings/SettingsPasswordComponent/SettingsPasswordComponent";
+import SettingsSuggestByComponent from "./Settings/SettingsSuggestByComponent/SettingsSuggestByComponent";
+import SettingsTwoStepComponent from "./Settings/SettingsTwoStepComponent/SettingsTwoStepComponent";
+import SettingsNotificationsComponent from "./Settings/SettingsNotificationsComponent/SettingsNotificationsComponent";
 export {
     Navbar,
     FloatButtonComponent,
@@ -48,5 +57,14 @@ export {
     SettingsAccountComponent,
     SettingsSigninComponent,
     SettingsConnectionsComponent,
-    SettingsThemeComponent
+    SettingsThemeComponent,
+    SettingsVerifyComponent,
+    SettingsHibernateComponent,
+    SettingsCloseComponent,
+    SettingsEmailComponent,
+    SettingsPhoneComponent,
+    SettingsPasswordComponent,
+    SettingsSuggestByComponent,
+    SettingsTwoStepComponent,
+    SettingsNotificationsComponent
 }

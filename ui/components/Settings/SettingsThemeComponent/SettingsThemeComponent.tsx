@@ -2,7 +2,7 @@ import { UserOutlined, ArrowRightOutlined, LoginOutlined, GlobalOutlined, SunOut
 import { Card, List } from "antd";
 import Link from "next/link";
 
-const dataAccountAccessSettings = [
+const dataThemeSettings = [
     { key: '/Settings/dark', value: 'Dark Mode', icon: <SunOutlined /> },
     { key: '/Settings/light', value: 'Light Mode', icon: <MoonOutlined /> }
 ]
@@ -17,7 +17,7 @@ const SettingsThemeComponent: React.FC = () => {
             <List
                 size="large"
                 bordered
-                dataSource={dataAccountAccessSettings}
+                dataSource={dataThemeSettings}
                 renderItem={(item) => <Link href={item.key}> <List.Item extra={item.icon}>{item.value}</List.Item></Link>} />
         </Card>
     )

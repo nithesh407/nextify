@@ -1,6 +1,22 @@
 'use client'
 
-import { SettingsSiderComponent, SettingsAccountComponent, SettingsSigninComponent, SettingsConnectionsComponent, SettingsThemeComponent } from "@/ui/components";
+import {
+    SettingsSiderComponent,
+    SettingsAccountComponent,
+    SettingsSigninComponent,
+    SettingsConnectionsComponent,
+    SettingsThemeComponent,
+    SettingsVerifyComponent,
+    SettingsHibernateComponent,
+    SettingsCloseComponent,
+    SettingsEmailComponent,
+    SettingsPhoneComponent,
+    SettingsPasswordComponent,
+    SettingsSuggestByComponent,
+    SettingsTwoStepComponent,
+    SettingsNotificationsComponent
+}
+    from "@/ui/components";
 import { Layout, theme } from "antd";
 import { Content } from "antd/es/layout/layout";
 import { usePathname } from 'next/navigation'
@@ -30,8 +46,16 @@ const ContentComponent: React.FC = () => {
                     {content === 'Account' && <SettingsAccountComponent />}
                     {content === 'SignIn&Security' && <SettingsSigninComponent />}
                     {content === 'Connections' && <SettingsConnectionsComponent />}
-                    {/* {content === 'Notifications' && <SettingsSigninComponent />} */}
                     {content === 'Theme' && <SettingsThemeComponent />}
+                    {content === 'verify' && <SettingsVerifyComponent />}
+                    {content === 'Hibernate' && <SettingsHibernateComponent />}
+                    {content === 'Close' && <SettingsCloseComponent />}
+                    {content === 'email' && <SettingsEmailComponent />}
+                    {content === 'phonenumber' && <SettingsPhoneComponent />}
+                    {content === 'ChangePassword' && <SettingsPasswordComponent />}
+                    {content === 'suggest' && <SettingsSuggestByComponent />}
+                    {content === 'twostep' && <SettingsTwoStepComponent />}
+                    {content === 'Notifications' && <SettingsNotificationsComponent />}
                 </div>
             </Content>
         </Layout>

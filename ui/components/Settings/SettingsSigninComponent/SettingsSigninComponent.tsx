@@ -2,9 +2,9 @@ import { UserOutlined, ArrowRightOutlined, LoginOutlined } from "@ant-design/ico
 import { Card, List } from "antd";
 import Link from "next/link";
 
-const dataAccountAccessSettings = [
-    { key: '/Settings/email', value: 'Email Addresses' },
-    { key: '/Settings/phonenumber', value: 'Phone Numbers' },
+const dataSignInSettings = [
+    { key: '/Settings/email', value: 'Edit Email Address' },
+    { key: '/Settings/phonenumber', value: 'Change Phone Number' },
     { key: '/Settings/ChangePassword', value: 'Change Password' },
     { key: '/Settings/twostep', value: 'Two-Step Verification' }
 ]
@@ -19,7 +19,7 @@ const SettingsSigninComponent: React.FC = () => {
             <List
                 size="large"
                 bordered
-                dataSource={dataAccountAccessSettings}
+                dataSource={dataSignInSettings}
                 renderItem={(item) => <Link href={item.key}> <List.Item extra={<ArrowRightOutlined />}>{item.value}</List.Item></Link>} />
         </Card>
     )

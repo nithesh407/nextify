@@ -2,9 +2,8 @@ import { UserOutlined, ArrowRightOutlined, LoginOutlined, GlobalOutlined } from 
 import { Card, List } from "antd";
 import Link from "next/link";
 
-const dataAccountAccessSettings = [
-    { key: '/Settings/followers', value: 'Followers' },
-    { key: '/Settings/following', value: 'Following' },
+const dataConnectionSettings = [
+    { key: '/Connections', value: 'Followers & Following' },
     { key: '/Settings/suggest', value: 'Suggest People By' },
 ]
 
@@ -18,7 +17,7 @@ const SettingsConnectionsComponent: React.FC = () => {
             <List
                 size="large"
                 bordered
-                dataSource={dataAccountAccessSettings}
+                dataSource={dataConnectionSettings}
                 renderItem={(item) => <Link href={item.key}> <List.Item extra={<ArrowRightOutlined />}>{item.value}</List.Item></Link>} />
         </Card>
     )
