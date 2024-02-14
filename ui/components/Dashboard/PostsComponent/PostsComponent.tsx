@@ -39,11 +39,7 @@ const PostsComponent: React.FC<PostType> = ({ avatarProfileName, avatarImage, im
       <Content style={{ marginTop: 10, overflow: 'initial', width: '90%', alignSelf: "center" }}>
         <div
           style={{
-
-            // padding: 14,
             width: '100%',
-            // textAlign: 'center',
-
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
           }}
