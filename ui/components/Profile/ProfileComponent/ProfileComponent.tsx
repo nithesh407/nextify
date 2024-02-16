@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 
 const { Text, Title, Paragraph } = Typography
 
-type profiletype = {
+type Profiletype = {
     profileName: string,
     profileTag: string,
     profileRole: string,
@@ -24,7 +24,7 @@ type profiletype = {
     instagramURL: string
 }
 
-const ProfileComponent: React.FC<profiletype> = ({ profileName, profileTag, profileRole, profileLocation, profileURL, profileOrg, profileDescription, profileImage, linkedInURL, githubURL, twitterURL, instagramURL }) => {
+const ProfileComponent: React.FC<Profiletype> = ({ profileName, profileTag, profileRole, profileLocation, profileURL, profileOrg, profileDescription, profileImage, linkedInURL, githubURL, twitterURL, instagramURL }) => {
 
     const router = useRouter();
 
