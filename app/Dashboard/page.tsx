@@ -2,7 +2,7 @@ import { HomeProfile, CreatePost, PostsComponent, HomeCalender } from "@/ui/comp
 import { Row, Col, Layout } from "antd";
 import React from "react";
 
-import { POST_DETAILS } from "@/util/DUMMY_DATA";
+import { POST_DETAILS } from "@/utils/DUMMY_DATA";
 
 const Dashboard: React.FC = () => {
     return (

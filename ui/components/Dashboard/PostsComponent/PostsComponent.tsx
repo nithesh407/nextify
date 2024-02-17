@@ -5,7 +5,6 @@ import { Avatar, Card, Layout, Slider, Typography, theme } from 'antd';
 
 import { CommentOutlined, LikeOutlined, MenuOutlined } from '@ant-design/icons';
 import styles from './postsComponent.module.scss';
-import { useState } from 'react';
 
 const { Content } = Layout;
 const { Paragraph } = Typography;
@@ -21,7 +20,6 @@ type PostType = {
 
 const PostsComponent: React.FC<PostType> = ({ avatarProfileName, avatarImage, image, description, commentsCount, likesCount }) => {
 
-  const [rows, setRows] = useState(1);
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();

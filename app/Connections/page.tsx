@@ -4,8 +4,8 @@ import { ConnectionsSettings, ConnectionsPeople, ConnectionsCategory, Connection
 import { Row, Col } from "antd";
 import React, { useEffect, useState } from "react";
 
-import { UserItem } from "@/util";
-import { ConnectionsProfileComponentData } from "@/util/DUMMY_DATA";
+import { UserItem } from "@/utils";
+import { ConnectionsProfileComponentData } from "@/utils/DUMMY_DATA";
 
 const Connections: React.FC = () => {
     const [connectionsCategory, setconnectionsCategory] = useState<string>('following')

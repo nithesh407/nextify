@@ -15,14 +15,12 @@ interface CreatePostModalProps {
 const CreatePostModal: React.FC<CreatePostModalProps> = ({ visible, handleCancel }) => {
     const [uploadedFile, setUploadedFile] = useState<any>(null);
     const [showDragger, setShowDragger] = useState<boolean>(true);
-    const [imageStream, setImageStream] = useState<string | null>(null);
     const imageDescriptionRef = useRef<InputRef>(null);
 
     useEffect(() => {
         if (!visible) {
             setUploadedFile(null);
             setShowDragger(true);
-            setImageStream(null);
         }
     }, [visible]);
 
@@ -31,46 +29,15 @@ const CreatePostModal: React.FC<CreatePostModalProps> = ({ visible, handleCancel
         if (status === 'done') {
             setUploadedFile(originFileObj);
             setShowDragger(false);
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                if (event.target && typeof event.target.result === 'string') {
-                    setImageStream(event.target.result);
-                }
-            };
-            reader.readAsDataURL(originFileObj);
         } else if (status === 'error') {
             message.error(`${info.file.name} file upload failed.`);
         }
     };
 
     const handleOk = () => {
-        if (uploadedFile && imageStream) {
-            // Here you can send the imageStream to your backend server to store it in S3
-            // Example:
-            // fetch('your_backend_url', {
-            //     method: 'POST',
-            //     body: JSON.stringify({ imageStream, description: imageDescriptionRef.current?.input.value }),
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     }
-            // })
-            // .then(response => {
-            //     if (response.ok) {
-            //         return response.json();
-            //     }
-            //     throw new Error('Network response was not ok.');
-            // })
-            // .then(data => {
-            //     console.log('Success:', data);
-            //     message.success('File uploaded successfully.');
-            //     handleCancel();
-            // })
-            // .catch(error => {
-            //     console.error('Error:', error);
-            //     message.error('Failed to upload file.');
-            // });
+        if (uploadedFile) {
             message.success('File uploaded successfully.');
-            console.log(imageStream, uploadedFile)
+            console.log(uploadedFile)
             handleCancel();
         } else {
             message.error('No file uploaded.');
@@ -80,7 +47,6 @@ const CreatePostModal: React.FC<CreatePostModalProps> = ({ visible, handleCancel
     const handleButtonCancel = () => {
         setUploadedFile(null);
         setShowDragger(true);
-        setImageStream(null);
         handleCancel();
         message.error('No file uploaded.');
     }
@@ -93,7 +59,7 @@ const CreatePostModal: React.FC<CreatePostModalProps> = ({ visible, handleCancel
             footer={null}
         >
             {showDragger && (
-                <ImgCrop aspect={6 / 4}>
+                <ImgCrop >
                     <Dragger onChange={handleUploadChange} showUploadList={false}>
                         <p className="ant-upload-drag-icon">
                             <InboxOutlined />
