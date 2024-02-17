@@ -1,9 +1,11 @@
 'use client'
+
 import React, { useState, useEffect, useRef } from 'react';
-import { Modal, message, Button, Typography, Input, InputRef } from 'antd';
+import { Modal, message, Button, Typography, Input } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 import { Upload } from 'antd';
 import ImgCrop from 'antd-img-crop';
+
 
 const { Dragger } = Upload;
 
@@ -14,15 +16,13 @@ interface CreatePostModalProps {
 
 const CreatePostModal: React.FC<CreatePostModalProps> = ({ visible, handleCancel }) => {
     const [uploadedFile, setUploadedFile] = useState<any>(null);
+    const [file, setFile] = useState<File | null>(null);
+    const [postDescription, setPostDescription] = useState<string | null>(null);
     const [showDragger, setShowDragger] = useState<boolean>(true);
-    const [imageStream, setImageStream] = useState<string | null>(null);
-    const imageDescriptionRef = useRef<InputRef>(null);
-
     useEffect(() => {
         if (!visible) {
             setUploadedFile(null);
             setShowDragger(true);
-            setImageStream(null);
         }
     }, [visible]);
 
@@ -30,60 +30,42 @@ const CreatePostModal: React.FC<CreatePostModalProps> = ({ visible, handleCancel
         const { status, originFileObj } = info.file;
         if (status === 'done') {
             setUploadedFile(originFileObj);
+            setFile(originFileObj);
             setShowDragger(false);
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                if (event.target && typeof event.target.result === 'string') {
-                    setImageStream(event.target.result);
-                }
-            };
-            reader.readAsDataURL(originFileObj);
         } else if (status === 'error') {
             message.error(`${info.file.name} file upload failed.`);
         }
     };
 
-    const handleOk = () => {
-        if (uploadedFile && imageStream) {
-            // Here you can send the imageStream to your backend server to store it in S3
-            // Example:
-            // fetch('your_backend_url', {
-            //     method: 'POST',
-            //     body: JSON.stringify({ imageStream, description: imageDescriptionRef.current?.input.value }),
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     }
-            // })
-            // .then(response => {
-            //     if (response.ok) {
-            //         return response.json();
-            //     }
-            //     throw new Error('Network response was not ok.');
-            // })
-            // .then(data => {
-            //     console.log('Success:', data);
-            //     message.success('File uploaded successfully.');
-            //     handleCancel();
-            // })
-            // .catch(error => {
-            //     console.error('Error:', error);
-            //     message.error('Failed to upload file.');
-            // });
-            message.success('File uploaded successfully.');
-            console.log(imageStream, uploadedFile)
+    const handleOk = async () => {
+        if (file && postDescription) {
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('postDescription', postDescription);
+            try {
+                const response = await fetch('http://localhost:3000/api/v1/posts/createPost', {
+                    method: 'POST',
+                    body: formData
+                })
+                const msg = await response.json()
+                message.success('file uploaded')
+            } catch (err) {
+                message.error(`${err}`)
+            }
             handleCancel();
+            window.location.reload()
         } else {
-            message.error('No file uploaded.');
+            message.error('Please upload a file and provide a valid description.');
         }
     };
 
+
     const handleButtonCancel = () => {
         setUploadedFile(null);
+        setPostDescription(null);
         setShowDragger(true);
-        setImageStream(null);
         handleCancel();
-        message.error('No file uploaded.');
-    }
+    };
 
     return (
         <Modal
@@ -93,7 +75,7 @@ const CreatePostModal: React.FC<CreatePostModalProps> = ({ visible, handleCancel
             footer={null}
         >
             {showDragger && (
-                <ImgCrop aspect={6 / 4}>
+                <ImgCrop aspect={5 / 4}>
                     <Dragger onChange={handleUploadChange} showUploadList={false}>
                         <p className="ant-upload-drag-icon">
                             <InboxOutlined />
@@ -116,10 +98,10 @@ const CreatePostModal: React.FC<CreatePostModalProps> = ({ visible, handleCancel
                         <Input
                             count={{
                                 show: true,
-                                max: 30,
+                                max: 300,
                             }}
-                            defaultValue="Post Description"
-                            ref={imageDescriptionRef}
+                            placeholder='Post Description'
+                            onChange={(e) => setPostDescription(e.target.value)}
                         />
                     </div>
                 </>
