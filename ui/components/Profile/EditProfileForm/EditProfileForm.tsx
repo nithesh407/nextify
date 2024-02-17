@@ -24,39 +24,11 @@ import {
 } from "@ant-design/icons";
 import ImgCrop from "antd-img-crop";
 import { Moment } from "moment";
+import { ProfileItem } from "@/util";
+import CountrySelect from "./CountrySelect";
 
 type FileType = Parameters<GetProp<UploadProps, "beforeUpload">>[0];
-interface Education {
-  organization: string;
-  degree: string;
-  period: [Moment, Moment];
-}
 
-interface Skill {
-  skill: string;
-}
-
-interface InitialValuesType {
-  userImage: {
-    uid: string;
-    name: string;
-    status: "done" | "error" | "uploading" | "removed";
-    url?: string;
-    thumbUrl?: string;
-    crossOrigin?: "anonymous" | "use-credentials" | "";
-    percent?: number;
-  };
-  userName: string;
-  userEmail: string;
-  userLocation: string;
-  userDescription: string;
-  Educations: Education[];
-  Skills: Skill[];
-  linkedINURL: string;
-  githubURL: string;
-  twitterURL: string;
-  instagramURL: string;
-}
 
 const { Panel } = Collapse;
 const isProfileSection = true;
@@ -93,7 +65,7 @@ const formEducationItemLayout = {
 
 };
 
-const EditProfileForm: React.FC<{ initialValues: InitialValuesType }> = ({
+const EditProfileForm: React.FC<{ initialValues: ProfileItem }> = ({
   initialValues,
 }) => {
   const [form] = Form.useForm();
@@ -229,7 +201,7 @@ const EditProfileForm: React.FC<{ initialValues: InitialValuesType }> = ({
                   rules={[{ required: true }]}
                   {...(isProfileSection && formProfileItemLayout)}
                 >
-                  <Input />
+                  <CountrySelect/>
                 </Form.Item>
                 <Form.Item
                   label="User Description"

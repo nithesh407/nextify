@@ -18,9 +18,11 @@ const RootLayout = ({ children }: React.PropsWithChildren) => (
     <body>
       <AntdRegistry>
         <Navbar />
+        <main>
         <Suspense fallback={<Loading />}>
           {children}
         </Suspense>
+        </main>
         <FloatButtonComponent />
       </AntdRegistry>
     </body>

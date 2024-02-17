@@ -1,42 +1,10 @@
 'use client'
 
 import { EditProfileForm } from "@/ui/components";
-import moment, { Moment } from "moment";
+import {ProfileItem} from "@/util";
+import moment from "moment";
 
-interface Education {
-  organization: string;
-  degree: string;
-  period: [Moment, Moment];
-}
-
-interface Skill {
-  skill: string;
-}
-
-interface InitialValuesType {
-  userImage: {
-    uid: string;
-    name: string;
-    status: 'done' | 'error' | 'uploading' | 'removed';
-    url?: string;
-    thumbUrl?:string;
-    crossOrigin?:'anonymous' | 'use-credentials' | '';
-    percent?:number;
-  };
-  userName: string;
-  userEmail: string;
-  userLocation: string;
-  userDescription: string;
-  Educations: Education[];
-  Skills: Skill[];
-  linkedINURL: string;
-  githubURL: string;
-  twitterURL: string;
-  instagramURL: string;
-}
-
-
-const initialValues:InitialValuesType = {
+const initialValues:ProfileItem = {
   userImage:{
     uid: '-1',
     name: 'image.png',
