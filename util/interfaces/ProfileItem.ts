@@ -6,10 +6,6 @@ interface Education {
     period: [Moment, Moment];
   }
   
-interface Skill {
-    skill: string;
-  }
-  
 interface ProfileItem {
     userImage: {
         uid: string;
@@ -22,10 +18,14 @@ interface ProfileItem {
       };
       userName: string;
       userEmail: string;
-      userLocation: string;
+      userLocation: {
+        country: string,
+        state: string,
+        city: string
+      };
       userDescription: string;
-      Educations: Education[];
-      Skills: Skill[];
+      educations: Education[];
+      skills: string[];
       linkedINURL: string;
       githubURL: string;
       twitterURL: string;
