@@ -45,10 +45,11 @@ const CreatePostModal: React.FC<CreatePostModalProps> = ({ visible, handleCancel
             try {
                 const response = await fetch('http://localhost:3000/api/v1/posts/createPost', {
                     method: 'POST',
+                    // headers: { "Content-Type": "application/json" },
                     body: formData
                 })
                 const msg = await response.json()
-                message.success('file uploaded')
+                message.success(msg)
             } catch (err) {
                 message.error(`${err}`)
             }

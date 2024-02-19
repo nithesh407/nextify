@@ -15,7 +15,7 @@ import BasicDetailsForm from "./BasicDetailsForm";
 import EducationForm from "./EducationForm";
 import SkillsForm from "./SkillsForm";
 import SocialMediaForm from "./SocialMediaForm";
-import { ProfileItem } from "@/util";
+import { ProfileItem } from "@/utils";
 
 const formItemLayout = {
   labelCol: {
@@ -48,14 +48,14 @@ const EditProfileForm: React.FC<{ initialValues: ProfileItem }> = ({
       .validateFields()
       .then(async (values) => {
         console.log("Form values:", values);
-        const response = await fetch('http://localhost:3000/api/v1/gytfugj/edit',{
+        const response = await fetch('http://localhost:3000/api/v1/gytfugj/edit', {
           method: 'POST',
-          headers:{"Content-Type" : "application/json"},
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(values)
         })
         const res = await response.json();
         console.log(res)
-      })  
+      })
       .catch((errorInfo) => {
         console.error("Validation failed:", errorInfo);
       });
@@ -64,26 +64,26 @@ const EditProfileForm: React.FC<{ initialValues: ProfileItem }> = ({
   const items: CollapseProps["items"] = [
     {
       key: "1",
-      forceRender:true,
+      forceRender: true,
       label: "Profile",
-      children: <BasicDetailsForm initialValues={initialValues} form={form}/>,
+      children: <BasicDetailsForm initialValues={initialValues} form={form} />,
     },
     {
       key: "2",
       label: "Education",
-      forceRender:true,
-      children: <EducationForm initialValues={initialValues}  />,
+      forceRender: true,
+      children: <EducationForm initialValues={initialValues} />,
     },
     {
       key: "3",
       label: "Skills",
-      forceRender:true,
-      children: <SkillsForm initialValues={initialValues}  />,
+      forceRender: true,
+      children: <SkillsForm initialValues={initialValues} />,
     },
     {
       key: "4",
       label: "Social Media",
-      forceRender:true,
+      forceRender: true,
       children: <SocialMediaForm initialValues={initialValues} />,
     },
   ];
@@ -110,7 +110,7 @@ const EditProfileForm: React.FC<{ initialValues: ProfileItem }> = ({
         }
       >
         <Collapse
-        defaultActiveKey={['1']}
+          defaultActiveKey={['1']}
           expandIcon={({ isActive }) => (
             <CaretRightOutlined rotate={isActive ? 90 : 0} />
           )}

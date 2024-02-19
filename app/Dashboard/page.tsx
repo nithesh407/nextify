@@ -5,7 +5,12 @@ import React from "react";
 import { POST_DETAILS } from "@/utils/DUMMY_DATA";
 
 const postData = async () => {
-    const response = await fetch("http://localhost:3000/api/v1/posts/", { cache: 'no-cache' })
+    const response = await fetch("http://localhost:3000/api/v1/posts/",
+        {
+            cache: 'no-cache',
+        }
+
+    )
 
     const posts = await response.json()
     return posts.data

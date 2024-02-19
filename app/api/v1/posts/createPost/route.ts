@@ -6,7 +6,7 @@ import { PostModel } from "@/server/models";
 import { S3_ACCESS_KEY_ID, S3_SECRET_ACCESS_KEY, S3_REGION, S3_BUCKET_NAME } from "@/server/config";
 
 const s3ClientConfig: S3ClientConfig = {
-    region: S3_REGION,
+    region: S3_REGION as string,
     credentials: {
         accessKeyId: S3_ACCESS_KEY_ID as string,
         secretAccessKey: S3_SECRET_ACCESS_KEY as string,
@@ -23,7 +23,7 @@ async function uploadFileToS3(file: Buffer, fileName: string) {
 
     const params = {
         Bucket: S3_BUCKET_NAME,
-        Key: `${fileName}-${Date.now()}`,
+        Key: `posts/${fileName}-${Date.now()}`,
         Body: fileBuffer,
         ContentType: "image/jpg"
     }

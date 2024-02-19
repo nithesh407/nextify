@@ -20,19 +20,19 @@ const UserSchema = new Schema({
   instagramURL: String,
   slug: String,
   createdAt: {
-    type: Date, default:Date.now()
+    type: Date, default: Date.now()
   },
-  hibernate :{
-    type: Boolean, default:false
+  hibernate: {
+    type: Boolean, default: false
   },
-  verified :{
-    type: Boolean, default:false
+  verified: {
+    type: Boolean, default: false
   }
 
 });
 
 
 
-const UserModel = models?.user  || model('User',UserSchema) 
+const UserModel = models?.User || model('User', UserSchema)
 
 export default UserModel;
