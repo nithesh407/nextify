@@ -16,6 +16,7 @@ import EducationForm from "./EducationForm";
 import SkillsForm from "./SkillsForm";
 import SocialMediaForm from "./SocialMediaForm";
 import { ProfileItem } from "@/utils";
+import { useRouter } from "next/navigation";
 
 const formItemLayout = {
   labelCol: {
@@ -30,7 +31,8 @@ const EditProfileForm: React.FC<{ initialValues: ProfileItem }> = ({
   initialValues,
 }) => {
   const [form] = Form.useForm();
-
+  const router = useRouter()
+  const formData = new FormData()
 
   useEffect(() => {
     if (initialValues) {
@@ -47,14 +49,23 @@ const EditProfileForm: React.FC<{ initialValues: ProfileItem }> = ({
     form
       .validateFields()
       .then(async (values) => {
-        console.log("Form values:", values);
-        const response = await fetch('http://localhost:3000/api/v1/gytfugj/edit', {
+        console.log(values)
+        if (values.userImage.originFileObj) {
+          formData.append('file', values.userImage.originFileObj)
+          const imgResponse = await fetch('http://localhost:3000/api/v1/s3/users', {
+            method: 'POST',
+            body: formData
+          })
+          const res = await imgResponse.json();
+          values.imageUrl = res.imageUrl
+        }
+        const response = await fetch('http://localhost:3000/api/v1/users/gytfugj/edit', {
           method: 'POST',
-          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(values)
         })
         const res = await response.json();
         console.log(res)
+        router.push('/Profile/gytfugj')
       })
       .catch((errorInfo) => {
         console.error("Validation failed:", errorInfo);

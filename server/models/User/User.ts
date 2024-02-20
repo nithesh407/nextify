@@ -6,6 +6,7 @@ const UserSchema = new Schema({
   userName: String,
   password: String,
   email: String,
+  userDescription: String,
   educations: [
     {
       organization: String,
@@ -13,12 +14,18 @@ const UserSchema = new Schema({
       period: [Date]
     },
   ],
+  userLocation: {
+    country: String,
+    state: String,
+    city: String
+  },
   skills: [String],
   linkedINURL: String,
   githubURL: String,
   twitterURL: String,
   instagramURL: String,
   slug: String,
+  imageUrl: String,
   createdAt: {
     type: Date, default: Date.now()
   },

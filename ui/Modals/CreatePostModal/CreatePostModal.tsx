@@ -27,6 +27,7 @@ const CreatePostModal: React.FC<CreatePostModalProps> = ({ visible, handleCancel
     }, [visible]);
 
     const handleUploadChange = (info: any) => {
+        console.log(info)
         const { status, originFileObj } = info.file;
         if (status === 'done') {
             setUploadedFile(originFileObj);
@@ -41,15 +42,21 @@ const CreatePostModal: React.FC<CreatePostModalProps> = ({ visible, handleCancel
         if (file && postDescription) {
             const formData = new FormData();
             formData.append('file', file);
-            formData.append('postDescription', postDescription);
             try {
-                const response = await fetch('http://localhost:3000/api/v1/posts/createPost', {
+                const imgResponse = await fetch('http://localhost:3000/api/v1/s3/posts/', {
                     method: 'POST',
-                    // headers: { "Content-Type": "application/json" },
                     body: formData
                 })
-                const msg = await response.json()
-                message.success(msg)
+                const imgRes = await imgResponse.json()
+
+                formData.append('postDescription', postDescription);
+                formData.append('imageUrl', imgRes.imageUrl);
+                const response = await fetch('http://localhost:3000/api/v1/posts/createPost', {
+                    method: 'POST',
+                    body: formData
+                })
+                const res = await response.json()
+                message.success(res.status)
             } catch (err) {
                 message.error(`${err}`)
             }

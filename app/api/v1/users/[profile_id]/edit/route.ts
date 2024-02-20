@@ -5,13 +5,13 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
     try {
         await ConnectDatabase();
-        const inputData = await req.json();
-        console.log(inputData)
-        await UserModel.create(inputData);
+        const data = await req.json()
+        console.log(data)
+        const user = await UserModel.create(data)
         return NextResponse.json({
             status: 'success',
             message: 'User details saved successfully',
-            data: inputData
+            data: user
         }, { status: 201 });
     } catch (error) {
         console.error('Error:', error);
