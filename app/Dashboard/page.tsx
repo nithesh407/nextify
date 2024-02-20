@@ -2,9 +2,22 @@ import { HomeProfile, CreatePost, PostsComponent, HomeCalender } from "@/ui/comp
 import { Row, Col, Layout } from "antd";
 import React from "react";
 
-import { POST_DETAILS } from "@/util/DUMMY_DATA";
+import { POST_DETAILS } from "@/utils/DUMMY_DATA";
 
-const Dashboard: React.FC = () => {
+const postData = async () => {
+    const response = await fetch("http://localhost:3000/api/v1/posts/",
+        {
+            cache: 'no-cache',
+        }
+
+    )
+
+    const posts = await response.json()
+    return posts.data
+}
+
+const Dashboard: React.FC = async () => {
+    const POSTS = await postData()
     return (
         <Layout>
             <Row style={{ marginTop: 15 }}>
@@ -25,13 +38,13 @@ const Dashboard: React.FC = () => {
                 <Col span={12} offset={1}>
                     <>
                         <CreatePost profile={POST_DETAILS[0].avatarImage} />
-                        {POST_DETAILS.map((post, index) => (
+                        {POSTS && POSTS.map((post: { avatarProfileName: string; avatarImage: string; postDescription: string; imageUrl: string; likesCount: number; commentsCount: number; }, index: React.Key | null | undefined) => (
                             <PostsComponent
                                 key={index}
                                 avatarProfileName={post.avatarProfileName}
                                 avatarImage={post.avatarImage}
-                                description={post.description}
-                                image={post.image}
+                                postDescription={post.postDescription}
+                                imageUrl={post.imageUrl as string}
                                 likesCount={post.likesCount}
                                 commentsCount={post.commentsCount}
                             />

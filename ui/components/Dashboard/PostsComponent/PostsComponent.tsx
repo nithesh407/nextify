@@ -5,7 +5,6 @@ import { Avatar, Card, Layout, Slider, Typography, theme } from 'antd';
 
 import { CommentOutlined, LikeOutlined, MenuOutlined } from '@ant-design/icons';
 import styles from './postsComponent.module.scss';
-import { useState } from 'react';
 
 const { Content } = Layout;
 const { Paragraph } = Typography;
@@ -13,15 +12,14 @@ const { Paragraph } = Typography;
 type PostType = {
   avatarProfileName: string,
   avatarImage: string,
-  image: string,
-  description: string,
+  imageUrl: string,
+  postDescription: string,
   likesCount: number,
   commentsCount: number,
 }
 
-const PostsComponent: React.FC<PostType> = ({ avatarProfileName, avatarImage, image, description, commentsCount, likesCount }) => {
+const PostsComponent: React.FC<PostType> = ({ avatarProfileName, avatarImage, imageUrl, postDescription, commentsCount, likesCount }) => {
 
-  const [rows, setRows] = useState(1);
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -64,14 +62,14 @@ const PostsComponent: React.FC<PostType> = ({ avatarProfileName, avatarImage, im
           >
             <div className={styles.paraContainer}>
               <Paragraph ellipsis={{ rows: 2, expandable: true, symbol: 'see more' }}>
-                {description}
+                {postDescription}
               </Paragraph>
             </div>
             <div className={styles.imageContainer} style={{ height: '100%' }}> {/* Set imageContainer to fill the Card */}
               <img
                 className={styles.postImage}
                 alt={avatarProfileName}
-                src={image}
+                src={imageUrl}
 
               // style={{ height: '100%', objectFit: 'cover' }} // Ensure the image fills the container
               />
