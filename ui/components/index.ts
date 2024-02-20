@@ -1,3 +1,5 @@
+import LoginComponent from "./Login/LoginComponent";
+import SignUpComponent from "./SignUp/SignUpComponent";
 import Navbar from "./Navbar/Navbar";
 import PostsComponent from "./Dashboard/PostsComponent/PostsComponent";
 import CreatePost from "./Dashboard/CreatePost/CreatePost";
@@ -37,6 +39,8 @@ import Error403 from "./ErrorComponents/Error403";
 import Error404 from "./ErrorComponents/Error404";
 import Error500 from "./ErrorComponents/Error500";
 export {
+    LoginComponent,
+    SignUpComponent,
     Navbar,
     FloatButtonComponent,
     Search,

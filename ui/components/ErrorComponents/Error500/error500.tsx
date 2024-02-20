@@ -7,7 +7,7 @@ import styles from "./error500.module.scss";
 
 const { Title, Paragraph } = Typography;
 
-const Error500 = () => (
+const Error500: React.FC = () => (
   <Row justify="center" className={styles.rowContainer}>
     <Col className={styles.colContainer}>
       <Space direction="vertical">

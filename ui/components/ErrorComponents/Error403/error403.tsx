@@ -7,7 +7,7 @@ import styles from "./error403.module.scss";
 
 const { Title, Paragraph } = Typography;
 
-const Error403 = () => (
+const Error403: React.FC = () => (
   <Row justify="center" className={styles.rowContainer}>
     <Col className={styles.colContainer}>
       <Space direction="vertical">

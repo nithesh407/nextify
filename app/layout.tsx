@@ -1,3 +1,4 @@
+'use client'
 import type { Metadata } from "next";
 import "./globals.css";
 import { AntdRegistry } from '@ant-design/nextjs-registry';
@@ -6,25 +7,28 @@ import { FloatButtonComponent, Navbar } from "@/ui/components";
 import React from 'react';
 import Loading from "./loading";
 import { Suspense } from "react";
+import { usePathname } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Nextify",
-  description: "Social Media App",
+
+
+
+const RootLayout = ({ children }: React.PropsWithChildren) => {
+  const path = usePathname()
+  return (
+    <html lang="en">
+      <body>
+        <AntdRegistry>
+          {path !== '/Signup' && path !== '/Login' && <Navbar />}
+
+          <Suspense fallback={<Loading />}>
+            {children}
+          </Suspense>
+          <FloatButtonComponent />
+        </AntdRegistry>
+      </body>
+    </html>
+  )
 };
 
-
-const RootLayout = ({ children }: React.PropsWithChildren) => (
-  <html lang="en">
-    <body>
-      <AntdRegistry>
-        <Navbar />
-        <Suspense fallback={<Loading />}>
-          {children}
-        </Suspense>
-        <FloatButtonComponent />
-      </AntdRegistry>
-    </body>
-  </html>
-);
 
 export default RootLayout;

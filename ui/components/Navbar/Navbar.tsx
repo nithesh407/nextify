@@ -18,7 +18,7 @@ import { MenuItemType } from "antd/lib/menu/hooks/useItems";
 
 import logo from '@/ui/images/icon.png'
 import styles from "./navbar.module.scss";
-import { USERS } from "@/util/DUMMY_DATA";
+import { USERS } from "@/lib/utils/DUMMY_DATA";
 
 import { Search } from "..";
 import { Header } from "antd/es/layout/layout";
@@ -101,4 +101,4 @@ const Navbar: React.FC = ({ }) => {
     );
 };
 
-export default React.memo(Navbar);
+export default Navbar;
