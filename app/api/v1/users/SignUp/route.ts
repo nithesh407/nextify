@@ -1,9 +1,11 @@
+import { ConnectDatabase } from "@/lib";
 import { UserModel } from "@/server/models";
 import { NextRequest, NextResponse } from "next/server";
 
 
 export async function POST(req: NextRequest) {
     try {
+        await ConnectDatabase()
         const userDetails = await req.json()
         if (!userDetails) {
             return NextResponse.json({
