@@ -10,6 +10,7 @@ import {
     IState,
     State,
 } from "country-state-city";
+import { useRouter } from "next/navigation";
 
 const { Option } = Select;
 
@@ -33,6 +34,7 @@ const SignUpComponent: React.FC = () => {
     const [countries, setCountries] = useState<ICountry[]>([]);
     const [states, setStates] = useState<IState[]>([]);
     const [cities, setCities] = useState<ICity[]>([]);
+    const router = useRouter()
 
     useEffect(() => {
         const fetchCountries = async () => {
@@ -98,7 +100,9 @@ const SignUpComponent: React.FC = () => {
             body: JSON.stringify(values)
         })
         const res = await response.json()
-        console.log(res)
+        if (res.status === 'success') {
+            router.push('/Login')
+        }
     };
 
     return (
