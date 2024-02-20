@@ -1,8 +1,7 @@
 import { ConnectDatabase } from "@/lib";
 import { UserModel } from "@/server/models";
 import { NextRequest, NextResponse } from "next/server";
-
-
+import { cookies } from "next/headers";
 export async function POST(req: NextRequest) {
     try {
         await ConnectDatabase()
@@ -14,6 +13,7 @@ export async function POST(req: NextRequest) {
             }, { status: 404 })
         }
         const user = await UserModel.create(userDetails)
+        cookies().set("user_id", user._id);
         return NextResponse.json({
             status: "success",
             message: "User Created Successfully",

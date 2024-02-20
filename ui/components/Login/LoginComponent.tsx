@@ -1,12 +1,25 @@
 'use client'
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import { Card, Form, Input, Flex, Button } from "antd";
+import { Card, Form, Input, Flex, Button, message } from "antd";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 
 const LoginComponent: React.FC = () => {
-    const onFinish = (values: any) => {
-        console.log("Received values of form: ", values);
+    const router = useRouter()
+    const onFinish = async (values: any) => {
+        const response = await fetch('http://localhost:3000/api/v1/users/Login', {
+            method: 'POST',
+            body: JSON.stringify(values),
+            cache: 'no-cache'
+        })
+        const res = await response.json();
+        if (res.status === 'success') {
+            router.push('/Dashboard')
+        }
+        if (res.status === 'fail') {
+            message.error(res.message)
+        }
     };
     return (
         <Card title={"Login"} style={{ width: '35%', top: 20, margin: "auto" }}>
@@ -17,12 +30,12 @@ const LoginComponent: React.FC = () => {
                 onFinish={onFinish}
             >
                 <Form.Item style={{ marginBottom: 30 }}
-                    name="username"
-                    rules={[{ required: true, message: "Please input your Username!" }]}
+                    name="email"
+                    rules={[{ required: true, message: "Please input your email!", type: 'email' }]}
                 >
                     <Input
                         prefix={<UserOutlined className="site-form-item-icon" />}
-                        placeholder="Username"
+                        placeholder="Email"
                         size="large"
                     />
                 </Form.Item>
