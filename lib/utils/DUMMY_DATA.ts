@@ -335,4 +335,4 @@ const ConnectionsProfileComponentData = [
 ]
 
 
-export { USERS, POST_DETAILS, data, dataPosts, ConnectionsProfileComponentData };
+export { USERS, data, dataPosts, ConnectionsProfileComponentData, POST_DETAILS };

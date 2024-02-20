@@ -2,7 +2,7 @@
 
 import { EditFilled, PlusOutlined } from "@ant-design/icons";
 import { Avatar, Button, Card, Flex, Image, List, Typography } from "antd";
-import { POST_DETAILS } from "@/utils/DUMMY_DATA";
+import { POST_DETAILS } from "@/lib/utils/DUMMY_DATA";
 import Link from "next/link";
 
 const { Title, Paragraph } = Typography
@@ -42,9 +42,9 @@ const ProfileActivity: React.FC = () => {
                         <Link href={''}>
                             <List.Item.Meta
                                 style={{ marginBottom: -7 }}
-                                avatar={<Avatar shape='square' size={100} src={item.image} />}
+                                avatar={<Avatar shape='square' size={100} src={item.avatarImage} />}
                                 title={<Paragraph type='secondary'>12/12/2024</Paragraph>}
-                                description={<Paragraph style={{ marginTop: '-10px' }} ellipsis={{ rows: 3, suffix: 'see more' }} >{item.description}</Paragraph>}
+                                description={<Paragraph style={{ marginTop: '-10px' }} ellipsis={{ rows: 3, suffix: 'see more' }} >{item.postDescription}</Paragraph>}
                             />
                         </Link>
                     </List.Item>

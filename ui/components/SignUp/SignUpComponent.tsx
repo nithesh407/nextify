@@ -92,8 +92,13 @@ const SignUpComponent: React.FC = () => {
         });
     };
 
-    const onFinish = (values: any) => {
-        console.log("Received values of form: ", values);
+    const onFinish = async (values: any) => {
+        const response = await fetch('/api/v1/users/SignUp', {
+            method: 'POST',
+            body: JSON.stringify(values)
+        })
+        const res = await response.json()
+        console.log(res)
     };
 
     return (

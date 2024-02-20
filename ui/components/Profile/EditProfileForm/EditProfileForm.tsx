@@ -15,7 +15,7 @@ import BasicDetailsForm from "./BasicDetailsForm";
 import EducationForm from "./EducationForm";
 import SkillsForm from "./SkillsForm";
 import SocialMediaForm from "./SocialMediaForm";
-import { ProfileItem } from "@/utils";
+import { ProfileItem } from "@/Interface/index";
 import { useRouter } from "next/navigation";
 
 const formItemLayout = {

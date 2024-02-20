@@ -4,7 +4,7 @@ import { NotificationsSettings, NotificationsStatistics, NotificationsCategory, 
 import { Row, Col, } from "antd";
 import React, { useState } from "react";
 
-import { data, dataPosts } from '@/utils/DUMMY_DATA'
+import { data, dataPosts } from '@/lib/utils/DUMMY_DATA'
 
 const Notifications: React.FC = () => {
     const [notificationsCategory, setNotificationsCategory] = useState<string>('all')

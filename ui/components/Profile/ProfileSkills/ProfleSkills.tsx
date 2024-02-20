@@ -2,7 +2,7 @@
 
 import { EditFilled, EditOutlined, PlusOutlined } from "@ant-design/icons";
 import { Avatar, Button, Card, Flex, Image, List, Typography } from "antd";
-import { POST_DETAILS } from "@/utils/DUMMY_DATA";
+import { POST_DETAILS } from "@/lib/utils/DUMMY_DATA";
 import Link from "next/link";
 
 const { Title, Paragraph } = Typography
@@ -36,7 +36,7 @@ const ProfileSkills: React.FC = () => {
                         <Link href={''}>
                             <List.Item.Meta
                                 style={{ marginBottom: -17 }}
-                                avatar={<Avatar src={item.image} />}
+                                avatar={<Avatar src={item.avatarImage} />}
                                 title={<Paragraph style={{ lineHeight: '1rem' }}>{item.avatarProfileName}<br /><span style={{ fontWeight: 'lighter' }}>Course and degree</span></Paragraph>}
                             />
                         </Link>
