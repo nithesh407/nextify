@@ -31,4 +31,4 @@ const Error404: React.FC = () => {
   )
 };
 
-export default React.memo(Error404);
+export default Error404;
