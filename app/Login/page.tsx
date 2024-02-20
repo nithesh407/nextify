@@ -9,14 +9,14 @@ const Login: React.FC = () => {
   };
 
   return (
-    <Card title={"Login"}  style={{ width: "30%", top: 20, margin: "auto" }}>
+    <Card title={"Login"} style={{ width: '35%', top: 20, margin: "auto" }}>
       <Form
         name="normal_login"
         className="login-form"
         initialValues={{ remember: true }}
         onFinish={onFinish}
       >
-        <Form.Item style={{marginBottom:30}}
+        <Form.Item style={{ marginBottom: 30 }}
           name="username"
           rules={[{ required: true, message: "Please input your Username!" }]}
         >
@@ -28,7 +28,7 @@ const Login: React.FC = () => {
         </Form.Item>
 
         <Form.Item
-          
+
           name="password"
           rules={[{ required: true, message: "Please input your Password!" }]}
         >
@@ -39,21 +39,21 @@ const Login: React.FC = () => {
             size="large"
           />
         </Form.Item>
-        <Form.Item>
-          <Form.Item name="remember" valuePropName="checked"  style={{marginTop:-30}}>
-            <p>
-              Forgot your Password:{" "}
-              <Link
-                className="login-form-forgot"
-                href=""
-                style={{ marginLeft: "35%", textDecoration: "underline" }}
-              >
-                Reset password
-              </Link>{" "}
-            </p>
-          </Form.Item>
-        </Form.Item>
-        <Flex justify="center" vertical style={{marginTop:-20}}>
+        <Flex style={{ alignItems: 'center', marginBottom: 30, marginTop: -22, justifyContent: 'space-evenly' }}>
+          <p>
+            Forgot your Password:{" "}
+          </p>
+          <Link
+            className="login-form-forgot"
+            href=""
+            style={{ marginLeft: "35%", textDecoration: "underline" }}
+          >
+            Reset password
+          </Link>{" "}
+
+        </Flex>
+
+        <Flex justify="center" vertical style={{ marginTop: -20 }}>
           <Form.Item noStyle>
             <Button
               type="primary"
@@ -64,7 +64,7 @@ const Login: React.FC = () => {
             </Button>
           </Form.Item>
 
-          <p style={{alignSelf:'center', marginTop:3}}>
+          <p style={{ alignSelf: 'center', marginTop: 3 }}>
             {" "}
             Or <Link href="Signup">register now!</Link>
           </p>

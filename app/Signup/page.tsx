@@ -97,7 +97,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Card title={'Signup'} style={{margin:'auto', width:'35%',top:20}}>
+    <Card title={'Signup'} style={{ margin: 'auto', width: '45%', alignSelf: 'center' }}>
       <Form
         {...formItemLayout}
         form={form}
@@ -112,7 +112,7 @@ const App: React.FC = () => {
           name="userName"
           rules={[{ required: true }]}
         >
-          <Input  placeholder='Username'/>
+          <Input placeholder='Username' />
         </Form.Item>
         <Form.Item
           name="email"
@@ -128,7 +128,7 @@ const App: React.FC = () => {
             },
           ]}
         >
-          <Input  placeholder='E-mail'/>
+          <Input placeholder='E-mail' />
         </Form.Item>
         <Form.Item
           name="profession"
@@ -162,7 +162,7 @@ const App: React.FC = () => {
               rules={[{ required: states.length > 0 }]}
               name={["userLocation", "state"]}
             >
-              <Select onChange={handleState} showSearch  placeholder='Select Your State'>
+              <Select onChange={handleState} showSearch placeholder='Select Your State'>
                 {states.map((state) => (
                   <Option key={state.name} value={state.name}>
                     {state.name}
@@ -177,7 +177,7 @@ const App: React.FC = () => {
               rules={[{ required: cities.length > 0 }]}
               name={["userLocation", "city"]}
             >
-              <Select onChange={handleCity} showSearch  placeholder='Select Your City'>
+              <Select onChange={handleCity} showSearch placeholder='Select Your City'>
                 {cities.map((city) => (
                   <Option key={city.name} value={city.name}>
                     {city.name}
@@ -199,7 +199,7 @@ const App: React.FC = () => {
           ]}
           hasFeedback
         >
-          <Input.Password  placeholder='Password'/>
+          <Input.Password placeholder='Password' />
         </Form.Item>
 
         <Form.Item
@@ -224,7 +224,7 @@ const App: React.FC = () => {
             }),
           ]}
         >
-          <Input.Password   placeholder='Confirm Password'/>
+          <Input.Password placeholder='Confirm Password' />
         </Form.Item>
 
         <Form.Item
@@ -236,7 +236,7 @@ const App: React.FC = () => {
           <Input.TextArea placeholder="Some interesting stuff about you !" />
         </Form.Item>
 
-        <Form.Item style={{display:'flex', justifyContent:'center'}}>
+        <Form.Item style={{ display: 'flex', justifyContent: 'center' }}>
           <Button type="primary" htmlType="submit">
             Register
           </Button>
