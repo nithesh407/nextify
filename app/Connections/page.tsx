@@ -8,6 +8,7 @@ import { UserItem } from "@/Interface/index";
 import { ConnectionsProfileComponentData } from "@/lib/utils/DUMMY_DATA";
 
 const Connections: React.FC = () => {
+
     const [connectionsCategory, setconnectionsCategory] = useState<string>('following')
     const fakeDataUrl = 'https://randomuser.me/api/?results=20&inc=name,gender,email,nat,picture&noinfo'
     const [data, setData] = useState<UserItem[]>([]);

@@ -1,8 +1,11 @@
 'use client'
-import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import { Card, Form, Input, Flex, Button, message } from "antd";
+import { UserOutlined, LockOutlined, GoogleOutlined, LoginOutlined } from "@ant-design/icons";
+import { Card, Form, Input, Flex, Button, message, Avatar } from "antd";
+import Image from "next/image";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import logo from "@/ui/images/icon.png"
 
 
 const LoginComponent: React.FC = () => {
@@ -21,13 +24,22 @@ const LoginComponent: React.FC = () => {
             message.error(res.message)
         }
     };
+    const title = <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}><Image
+        src={logo}
+        width={22}
+        height={22}
+        alt="Logo" />
+        <p>Login</p>
+    </div>
     return (
-        <Card title={"Login"} style={{ width: '35%', top: 20, margin: "auto" }}>
+        <Card title={title} extra={<LoginOutlined />} style={{ width: '100%', alignSelf: 'center', marginTop: '-2%' }}>
+            <Avatar style={{ marginLeft: '43%' }} size={60} src={'https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png'} />
             <Form
                 name="normal_login"
                 className="login-form"
                 initialValues={{ remember: true }}
                 onFinish={onFinish}
+                style={{ marginTop: 25 }}
             >
                 <Form.Item style={{ marginBottom: 30 }}
                     name="email"
@@ -72,15 +84,28 @@ const LoginComponent: React.FC = () => {
                             type="primary"
                             htmlType="submit"
                             className="login-form-button"
+                            style={{ width: '100%', alignSelf: 'center' }}
                         >
-                            Log in
+                            Login
+                        </Button>
+
+                        <Button
+                            className="login-form-button"
+                            onClick={() => signIn('google')}
+                            style={{ width: '100%', alignSelf: 'center', marginTop: '5%' }}
+                        >
+                            <GoogleOutlined /> <span style={{ gap: 10 }}>Sign in with Google</span>
                         </Button>
                     </Form.Item>
-
-                    <p style={{ alignSelf: 'center', marginTop: 3 }}>
-                        {" "}
-                        Or <Link href="Signup">register now!</Link>
-                    </p>
+                    <p style={{ alignSelf: 'center' }}>Or</p>
+                    <Button
+                        type="primary"
+                        className="login-form-button"
+                        style={{ width: '100%', alignSelf: 'center' }}
+                        onClick={() => router.push('/Signup')}
+                    >
+                        Register User
+                    </Button>
                 </Flex>
             </Form>
         </Card>

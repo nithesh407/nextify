@@ -8,6 +8,7 @@ import React from 'react';
 import Loading from "./loading";
 import { Suspense } from "react";
 import { usePathname } from "next/navigation";
+import { NextAuthProvider } from "./Providers";
 
 
 
@@ -17,14 +18,15 @@ const RootLayout = ({ children }: React.PropsWithChildren) => {
   return (
     <html lang="en">
       <body>
-        <AntdRegistry>
-          {path !== '/Signup' && path !== '/Login' && <Navbar />}
-
-          <Suspense fallback={<Loading />}>
-            {children}
-          </Suspense>
-          <FloatButtonComponent />
-        </AntdRegistry>
+        <NextAuthProvider>
+          <AntdRegistry>
+            {path !== '/Signup' && path !== '/Login' && <Navbar />}
+            <Suspense fallback={<Loading />}>
+              {children}
+            </Suspense>
+            <FloatButtonComponent />
+          </AntdRegistry>
+        </NextAuthProvider>
       </body>
     </html>
   )

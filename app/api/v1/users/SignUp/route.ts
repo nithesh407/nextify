@@ -12,8 +12,8 @@ export async function POST(req: NextRequest) {
                 message: "Please! Provide User Details",
             }, { status: 404 })
         }
+
         const user = await UserModel.create(userDetails)
-        cookies().set("user_id", user._id);
         return NextResponse.json({
             status: "success",
             message: "User Created Successfully",

@@ -11,6 +11,7 @@ import {
     BellOutlined,
     HomeOutlined,
     GlobalOutlined,
+    LogoutOutlined,
 } from "@ant-design/icons";
 
 import { useRouter, usePathname } from "next/navigation";
@@ -22,6 +23,7 @@ import { USERS } from "@/lib/utils/DUMMY_DATA";
 
 import { Search } from "..";
 import { Header } from "antd/es/layout/layout";
+import { deleteCookie } from "@/lib";
 
 const menuItems: MenuItemType[] = [
     {
@@ -46,7 +48,13 @@ const menuItems: MenuItemType[] = [
     },
     {
         key: "/Settings/Account",
+        label: 'Settings',
         icon: <SettingOutlined />,
+    },
+    {
+        key: "/api/v1/users/Logout",
+        label: 'Logout',
+        icon: <LogoutOutlined />,
     },
 ];
 

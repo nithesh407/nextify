@@ -1,0 +1,1 @@
+export const COOKIE_EXPIRE_TIME = process.env.COOKIE_EXPIRE_TIME as unknown as number
