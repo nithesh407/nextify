@@ -1,6 +1,7 @@
 'use client'
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Card, Form, Input, Flex, Button, message } from "antd";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -75,11 +76,19 @@ const LoginComponent: React.FC = () => {
                         >
                             Log in
                         </Button>
+                        <Button
+                            type="primary"
+                            htmlType="submit"
+                            className="login-form-button"
+                            onClick={() => signIn('google')}
+                        >
+                            Sign in with Google
+                        </Button>
                     </Form.Item>
 
                     <p style={{ alignSelf: 'center', marginTop: 3 }}>
                         {" "}
-                        Or <Link href="Signup">register now!</Link>
+                        Or <Link href="/Signup">Register Here!</Link>
                     </p>
                 </Flex>
             </Form>

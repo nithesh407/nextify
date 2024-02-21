@@ -2,9 +2,10 @@
 
 import React from "react";
 
-
+import { signIn } from "next-auth/react";
 import { RedirectType } from "next/dist/client/components/redirect";
 import { redirect } from "next/navigation";
+import { Button } from "antd";
 
 interface IParams {
   params: Record<string, string>,
@@ -21,5 +22,4 @@ export default function Home(params: IParams) {
     // redirect(`/api/auth?${p.toString()}`, RedirectType.replace);
   }
 
-  return <h1>Hello</h1>;
 }
