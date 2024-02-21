@@ -6,6 +6,9 @@ export function middleware(req: NextRequest) {
     if (req.nextUrl.pathname.startsWith('/Login') && authCookie) {
         return NextResponse.redirect('http://localhost:3000/Dashboard')
     }
+    if (req.nextUrl.pathname.startsWith('/Signup') && authCookie) {
+        return NextResponse.redirect('http://localhost:3000/Dashboard')
+    }
     if (req.nextUrl.pathname.startsWith('/Connections') && !authCookie) {
         return NextResponse.redirect('http://localhost:3000/Login')
     }

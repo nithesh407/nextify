@@ -1,6 +1,7 @@
+import { setCookie } from "@/lib"
 import { UserModel } from "@/server/models"
-import { cookies } from "next/headers"
 import { NextRequest, NextResponse } from "next/server"
+import { COOKIE_EXPIRE_TIME } from "@/server/config"
 
 export async function POST(req: NextRequest) {
     try {
@@ -20,8 +21,7 @@ export async function POST(req: NextRequest) {
                 message: "No User Found, Create an account"
             }, { status: 404 })
         }
-        cookies().set('user_id', user._id)
-        cookies().set('status', 'authenticated')
+        setCookie('authenticated', user._id, COOKIE_EXPIRE_TIME)
         return NextResponse.json({
             status: "success",
             message: "User found and logged in successfully."

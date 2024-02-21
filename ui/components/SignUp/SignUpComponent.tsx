@@ -1,98 +1,27 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Button, Card, Form, Input, Select } from "antd";
-import {
-    City,
-    Country,
-    ICity,
-    ICountry,
-    IState,
-    State,
-} from "country-state-city";
+import { GoogleOutlined, LoginOutlined, UserOutlined } from "@ant-design/icons";
+import { Avatar, Button, Card, Flex, Form, Input } from "antd";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-
-const { Option } = Select;
+import logo from "@/ui/images/icon.png"
+import Image from "next/image";
 
 const formItemLayout = {
     labelCol: {
         xs: { span: 24 },
-        sm: { span: 8 },
+        sm: { span: 9 },
     },
     wrapperCol: {
         xs: { span: 24 },
-        sm: { span: 16 },
+        sm: { span: 13 },
     },
 };
 
 
 const SignUpComponent: React.FC = () => {
     const [form] = Form.useForm();
-    const [selectedCountry, setSelectedCountry] = useState<string | null>();
-    const [selectedState, setSelectedState] = useState<string | null>();
-    const [selectedCity, setSelectedCity] = useState<string | null>();
-    const [countries, setCountries] = useState<ICountry[]>([]);
-    const [states, setStates] = useState<IState[]>([]);
-    const [cities, setCities] = useState<ICity[]>([]);
     const router = useRouter()
-
-    useEffect(() => {
-        const fetchCountries = async () => {
-            const allCountries = Country.getAllCountries();
-            setCountries(allCountries);
-        };
-
-        fetchCountries();
-    }, []);
-
-    function handleCountry(country: string) {
-        setSelectedCountry(country);
-        const countryObj = countries.find((c) => c.name === country);
-        if (countryObj) {
-            const allStates = State.getStatesOfCountry(countryObj.isoCode);
-            setStates(allStates);
-
-            form.setFieldsValue({
-                userLocation: {
-                    country: country,
-                    state: null,
-                    city: null,
-                },
-            });
-        }
-    }
-
-    const handleState = (stateName: string) => {
-        const countryObj = countries.find((c) => c.name === selectedCountry);
-        if (countryObj) {
-            setSelectedState(stateName);
-            const stateObj = states.find((s) => s.name === stateName);
-            if (stateObj) {
-                const allCities = City.getCitiesOfState(
-                    countryObj.isoCode,
-                    stateObj.isoCode
-                );
-                setCities(allCities);
-                form.setFieldsValue({
-                    userLocation: {
-                        ...form.getFieldValue("userLocation"),
-                        state: stateName,
-                        city: null,
-                    },
-                });
-            }
-        }
-    };
-
-    const handleCity = (cityName: string) => {
-        setSelectedCity(cityName);
-        form.setFieldsValue({
-            userLocation: {
-                ...form.getFieldValue("userLocation"),
-                city: cityName,
-            },
-        });
-    };
 
     const onFinish = async (values: any) => {
         const response = await fetch('/api/v1/users/SignUp', {
@@ -104,15 +33,23 @@ const SignUpComponent: React.FC = () => {
             router.push('/Login')
         }
     };
+    const title = <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}><Image
+        src={logo}
+        width={22}
+        height={22}
+        alt="Logo" />
+        <p>Signup</p>
+    </div>
 
     return (
-        <Card title={'Signup'} style={{ margin: 'auto', width: '45%', alignSelf: 'center' }}>
+        <Card title={title} extra={<LoginOutlined />} style={{ width: '100%', marginTop: -15 }}>
+            <Avatar style={{ marginLeft: '43%' }} size={60} src={'https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png'} />
             <Form
                 {...formItemLayout}
                 form={form}
                 name="register"
                 onFinish={onFinish}
-                style={{ maxWidth: 600 }}
+                style={{ maxWidth: 600, marginTop: 25 }}
                 scrollToFirstError
             >
                 <Form.Item
@@ -147,54 +84,6 @@ const SignUpComponent: React.FC = () => {
                     <Input
                         placeholder="Profession"
                     />
-                </Form.Item>
-                <Form.Item
-                    {...formItemLayout}
-                    label="User Location"
-                    rules={[{ required: true }]}
-                >
-                    <Form.Item
-                        rules={[{ required: true }]}
-                        name={["userLocation", "country"]}
-                    >
-                        <Select onChange={handleCountry} showSearch placeholder='Select Your Country'>
-                            {countries.map((country) => (
-                                <Option key={country.name} value={country.name}>
-                                    {country.name}
-                                </Option>
-                            ))}
-                        </Select>
-                    </Form.Item>
-
-                    {selectedCountry && (
-                        <Form.Item
-                            rules={[{ required: states.length > 0 }]}
-                            name={["userLocation", "state"]}
-                        >
-                            <Select onChange={handleState} showSearch placeholder='Select Your State'>
-                                {states.map((state) => (
-                                    <Option key={state.name} value={state.name}>
-                                        {state.name}
-                                    </Option>
-                                ))}
-                            </Select>
-                        </Form.Item>
-                    )}
-
-                    {cities !== null && selectedState && (
-                        <Form.Item
-                            rules={[{ required: cities.length > 0 }]}
-                            name={["userLocation", "city"]}
-                        >
-                            <Select onChange={handleCity} showSearch placeholder='Select Your City'>
-                                {cities.map((city) => (
-                                    <Option key={city.name} value={city.name}>
-                                        {city.name}
-                                    </Option>
-                                ))}
-                            </Select>
-                        </Form.Item>
-                    )}
                 </Form.Item>
 
                 <Form.Item
@@ -235,21 +124,26 @@ const SignUpComponent: React.FC = () => {
                 >
                     <Input.Password placeholder='Confirm Password' />
                 </Form.Item>
-
-                <Form.Item
-                    {...formItemLayout}
-                    label="User Description"
-                    name="userDescription"
-                    rules={[{ required: true }]}
-                >
-                    <Input.TextArea placeholder="Some interesting stuff about you !" />
-                </Form.Item>
-
-                <Form.Item style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Button type="primary" htmlType="submit">
-                        Register
-                    </Button>
-                </Form.Item>
+                <Flex justify="center" vertical style={{ marginTop: 10 }}>
+                    <Form.Item noStyle>
+                        <Button
+                            type="primary"
+                            htmlType="submit"
+                            className="login-form-button"
+                            style={{ width: '75%', alignSelf: 'center' }}
+                        >
+                            Register User
+                        </Button>
+                        <p style={{ alignSelf: 'center' }}>Or</p>
+                        <Button
+                            className="login-form-button"
+                            onClick={() => signIn('google')}
+                            style={{ width: '75%', alignSelf: 'center' }}
+                        >
+                            <GoogleOutlined /> <span style={{ gap: 10 }}>Sign Up with Google</span>
+                        </Button>
+                    </Form.Item>
+                </Flex>
             </Form>
         </Card>
     );

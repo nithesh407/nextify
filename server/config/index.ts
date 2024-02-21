@@ -1,6 +1,7 @@
 import { DB_URL } from "./database.config";
 import { S3_REGION, S3_ACCESS_KEY_ID, S3_SECRET_ACCESS_KEY, S3_BUCKET_NAME } from "./s3.config";
 import { GITHUB_CLIENT_ID, GITHUB_SECRET, NEXTAUTH_SECRET, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET } from "./auth.config"
+import { COOKIE_EXPIRE_TIME } from "./cookie.config";
 export {
     DB_URL,
     S3_REGION,
@@ -11,5 +12,6 @@ export {
     GITHUB_SECRET,
     NEXTAUTH_SECRET,
     GOOGLE_CLIENT_ID,
-    GOOGLE_CLIENT_SECRET
+    GOOGLE_CLIENT_SECRET,
+    COOKIE_EXPIRE_TIME
 }
