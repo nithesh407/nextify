@@ -18,7 +18,7 @@ export default function Home(params: IParams) {
 
   if (!searchParams.embedded) {
     // const p = new URLSearchParams(searchParams);
-    redirect("/Dashboard", RedirectType.replace);
+    redirect("/Login", RedirectType.replace);
     // redirect(`/api/auth?${p.toString()}`, RedirectType.replace);
   }
 
