@@ -23,7 +23,7 @@ import { USERS } from "@/lib/utils/DUMMY_DATA";
 
 import { Search } from "..";
 import { Header } from "antd/es/layout/layout";
-import { deleteCookie } from "@/lib";
+import Cookies from "js-cookie";
 
 const menuItems: MenuItemType[] = [
     {
@@ -42,7 +42,7 @@ const menuItems: MenuItemType[] = [
         label: "Notifications",
     },
     {
-        key: "/Profile/gytfugj",
+        key: `/Profile/${Cookies.get('user_id')}`,
         icon: <UserOutlined />,
         label: "Profile",
     },
