@@ -25,7 +25,10 @@ const UserSchema = new Schema({
   twitterURL: String,
   instagramURL: String,
   slug: String,
-  imageUrl: String,
+  imageUrl: {
+    type: String,
+    default: "https://nextify-posts.s3.ap-south-1.amazonaws.com/users/default%20user.png-1709100916648"
+  },
   createdAt: {
     type: Date, default: Date.now()
   },
