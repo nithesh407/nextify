@@ -53,14 +53,14 @@ const EditProfileForm: React.FC<{ initialValues: ProfileItem }> = ({
         if (values.userImage.originFileObj) {
           formData.append('file', values.userImage.originFileObj)
           const imgResponse = await fetch('http://localhost:3000/api/v1/s3/users', {
-            method: 'POST',
+            method: 'PATCH',
             body: formData
           })
           const res = await imgResponse.json();
           values.imageUrl = res.imageUrl
         }
         const response = await fetch('http://localhost:3000/api/v1/users/edit', {
-          method: 'POST',
+          method: 'PATCH',
           body: JSON.stringify(values)
         })
         const res = await response.json();

@@ -15,7 +15,7 @@ const initialValues: ProfileItem = {
     percent: 100
   },
   userName: 'John Doe',
-  userEmail: 'john.doe@example.com',
+  email: 'john.doe@example.com',
   userLocation: {
     country: 'India',
     state: 'Tamil Nadu',

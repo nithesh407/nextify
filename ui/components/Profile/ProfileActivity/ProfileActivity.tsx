@@ -1,6 +1,6 @@
 'use client'
 
-import { EditFilled, PlusOutlined } from "@ant-design/icons";
+import {  PlusOutlined } from "@ant-design/icons";
 import { Avatar, Button, Card, Flex, Image, List, Typography } from "antd";
 import { POST_DETAILS } from "@/lib/utils/DUMMY_DATA";
 import Link from "next/link";

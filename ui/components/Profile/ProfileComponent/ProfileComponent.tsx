@@ -6,36 +6,34 @@ import { EditOutlined, GithubFilled, InstagramFilled, LinkedinFilled, TwitterOut
 import coverImg from '@/public/cover.jpg'
 import logo from '@/ui/images/icon.png';
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const { Text, Title, Paragraph } = Typography
 
-type Profiletype = {
-    profileName: string,
-    profileTag: string,
-    profileRole: string,
-    profileURL: string,
-    profileLocation: string,
-    profileDescription: string,
-    profileOrg: String,
-    profileImage: string,
-    linkedInURL: string,
-    githubURL: string,
-    twitterURL: string,
-    instagramURL: string
-}
 
-const ProfileComponent: React.FC<Profiletype> = ({ profileName, profileTag, profileRole, profileLocation, profileURL, profileOrg, profileDescription, profileImage, linkedInURL, githubURL, twitterURL, instagramURL }) => {
+const ProfileComponent: React.FC<any> = ({data}) => {
 
     const router = useRouter();
+
+
+    const{
+        userName,
+        userLocation,
+        userDescription,
+        linkedINURL,
+        githubURL,
+        twitterURL,
+        instagramURL
+    } = data
 
 
     return (
         <Card
             actions={[
-                <LinkedinFilled style={{ color: 'dodgerblue', fontSize: '25px' }} src={linkedInURL} />,
-                <GithubFilled style={{ color: 'dark grey', fontSize: '25px' }} src={githubURL} />,
-                <TwitterOutlined style={{ color: 'skyblue', fontSize: '25px' }} src={twitterURL} />,
-                <InstagramFilled style={{ color: 'mediumvioletred', fontSize: '25px' }} src={instagramURL} />,
+                <Link href={linkedINURL}><LinkedinFilled style={{ color: 'dodgerblue', fontSize: '25px' }}  /></Link>,
+                <Link href={githubURL}> <GithubFilled style={{ color: 'dark grey', fontSize: '25px' }} /> </Link>,
+                <Link href={twitterURL}><TwitterOutlined style={{ color: 'skyblue', fontSize: '25px' }} /></Link>,
+               <Link href={instagramURL}><InstagramFilled style={{ color: 'mediumvioletred', fontSize: '25px' }} /></Link>,
             ]}
             cover={
                 <Image height={220} src={coverImg.src} alt={"coverImage"}></Image>
@@ -46,7 +44,7 @@ const ProfileComponent: React.FC<Profiletype> = ({ profileName, profileTag, prof
                 style={{ display: 'flex', flexDirection: 'column', marginTop: -120 }}
                 avatar={
                     <div style={{ width: 150, height: 150, borderRadius: '50%', overflow: 'hidden' }}>
-                        <Image width={150} height={150} style={{ objectFit: 'cover' }} src={profileImage} />
+                        <Image width={150} height={150} style={{ objectFit: 'cover' }} src={data.imageUrl} />
                     </div>
                 }
             />
@@ -57,20 +55,20 @@ const ProfileComponent: React.FC<Profiletype> = ({ profileName, profileTag, prof
             <Flex align="center">
                 <div style={{ flex: 1 }}>
                     <Flex vertical style={{ marginBottom: -60 }}>
-                        <Title level={2}>{profileName} - <span style={{ fontFamily: 'serif', fontStyle: 'oblique' }}>{profileRole}</span></Title>
+                        <Title level={2}>{userName} - <span style={{ fontFamily: 'serif', fontStyle: 'oblique' }}>{''}</span></Title>
 
-                        <Text type="secondary" copyable style={{ marginTop: -15 }} >{profileTag}</Text>
+                        <Text type="secondary" copyable style={{ marginTop: -15 }} >{`@${userName}`}</Text>
 
-                        <Paragraph ellipsis={{ rows: 2, symbol: 'more', expandable: true }}>{profileDescription}</Paragraph>
+                        <Paragraph ellipsis={{ rows: 2, symbol: 'more', expandable: true }}>{userDescription}</Paragraph>
 
-                        <Paragraph strong>{profileLocation} • <Button type="link" style={{ paddingLeft: 0 }}>Contact Info</Button></Paragraph>
+                        <Paragraph strong>{userLocation.state}, {userLocation.country} • <Button type="link" style={{ paddingLeft: 0 }}>Contact Info</Button></Paragraph>
 
                         <Flex gap={15}>
                             <Button style={{ width: '25%' }} type="primary" icon={<EditOutlined />}>Edit Profile</Button>
                             <Button style={{ width: '25%', color: '#1677ff', borderColor: '#1677ff', }}  >More</Button>
                             <QRCode
                                 errorLevel="H"
-                                value={profileURL}
+                                value={`${userName}.com`}
                                 icon={logo.src}
                                 size={100}
                                 style={{ top: -50, left: 180 }}

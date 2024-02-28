@@ -1,13 +1,14 @@
 'use client'
 
-import { EditFilled, EditOutlined, PlusOutlined } from "@ant-design/icons";
-import { Avatar, Button, Card, Flex, Image, List, Typography } from "antd";
-import { POST_DETAILS } from "@/lib/utils/DUMMY_DATA";
+import { BookOutlined, EditOutlined, FileTextOutlined, PlusOutlined } from "@ant-design/icons";
+import {  Button, Card, List, Typography } from "antd";
 import Link from "next/link";
 
 const { Title, Paragraph } = Typography
 
-const ProfileSkills: React.FC = () => {
+
+
+const ProfileSkills: React.FC <{skills:[string]}>= ({skills}) => {
     return (
         <Card
             size="small"
@@ -29,15 +30,15 @@ const ProfileSkills: React.FC = () => {
             <List
                 itemLayout="vertical"
                 size="small"
-                dataSource={POST_DETAILS}
+                dataSource={skills}
                 loadMore
                 renderItem={(item, index) => (
-                    <List.Item style={index === POST_DETAILS.length - 1 ? { borderBottom: 'none' } : undefined}>
+                    <List.Item style={index === skills.length - 1 ? { borderBottom: 'none' } : undefined}>
                         <Link href={''}>
                             <List.Item.Meta
-                                style={{ marginBottom: -17 }}
-                                avatar={<Avatar src={item.avatarImage} />}
-                                title={<Paragraph style={{ lineHeight: '1rem' }}>{item.avatarProfileName}<br /><span style={{ fontWeight: 'lighter' }}>Course and degree</span></Paragraph>}
+                                style={{ marginBottom: -5 }}
+                                avatar={<FileTextOutlined/>}
+                                title={<Paragraph style={{ lineHeight: '1rem' }}>{item }</Paragraph>}
                             />
                         </Link>
                     </List.Item>

@@ -1,12 +1,11 @@
 import { UserModel } from "@/server/models";
-import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
     try {
         const id = await req.json()
-        // console.log(user_id)
         console.log(id)
+
         const userDetails = await UserModel.findById(id);
         if (!userDetails) {
             return NextResponse.json({

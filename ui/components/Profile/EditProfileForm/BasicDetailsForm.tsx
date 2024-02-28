@@ -173,7 +173,7 @@ const BasicDetailsForm: React.FC<{ form: any; initialValues: any }> = ({
         </Form.Item>
         <Form.Item {...formProfileItemLayout}
           label="User Email"
-          name="userEmail"
+          name="email"
           rules={[{ required: true }]}
         >
           <Input />

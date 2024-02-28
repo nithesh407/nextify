@@ -2,11 +2,13 @@ import moment from "moment";
 import { Schema, model, models } from "mongoose";
 
 const UserSchema = new Schema({
-  name: String,
   userName: String,
   password: String,
   email: String,
-  userDescription: String,
+  userDescription: {
+    type:String,
+    default:'Hello Nextify User !!'
+  },
   educations: [
     {
       organization: String,
@@ -15,15 +17,15 @@ const UserSchema = new Schema({
     },
   ],
   userLocation: {
-    country: String,
-    state: String,
-    city: String
+    country: {type:String,default:'India'},
+    state: {type:String,default:'TamilNadu'},
+    city: {type:String,default:'Erode'}
   },
   skills: [String],
-  linkedINURL: String,
-  githubURL: String,
-  twitterURL: String,
-  instagramURL: String,
+  linkedINURL: {type:String,default:'linkedin.com'},
+  githubURL: {type:String,default:'github.com'},
+  twitterURL: {type:String,default:'twitter.com'},
+  instagramURL: {type:String,default:'instagram.com'},
   slug: String,
   imageUrl: {
     type: String,

@@ -2,12 +2,12 @@ import { ConnectDatabase } from "@/lib";
 import { UserModel } from "@/server/models";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(req: NextRequest) {
+export async function PATCH(req: NextRequest) {
     try {
         await ConnectDatabase();
         const data = await req.json()
-        console.log(data)
-        const user = await UserModel.create(data)
+        const currUserEmail = data.email
+        const user = await UserModel.findOneAndUpdate({email:currUserEmail}, data,{new:true})
         return NextResponse.json({
             status: 'success',
             message: 'User details saved successfully',

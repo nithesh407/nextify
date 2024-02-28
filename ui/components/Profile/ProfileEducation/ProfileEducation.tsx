@@ -1,13 +1,25 @@
 'use client'
 
-import { EditFilled, EditOutlined, PlusOutlined } from "@ant-design/icons";
+import {  EditOutlined, PlusOutlined } from "@ant-design/icons";
 import { Avatar, Button, Card, Flex, Image, List, Typography } from "antd";
-import { POST_DETAILS } from "@/lib/utils/DUMMY_DATA";
+import moment from "moment";
+import { Moment } from "moment";
+
 import Link from "next/link";
 
 const { Title, Paragraph } = Typography
 
-const ProfileEducation: React.FC = () => {
+type Education=[ {
+    organization: string;
+    degree: string;
+    period: [Moment, Moment];
+}
+]
+
+const ProfileEducation: React.FC<{educations:Education}> = ({educations}) => {
+    const formatYear = (date: Moment) => moment(date).year().toString();
+
+
     return (
         <Card
             size="small"
@@ -29,16 +41,16 @@ const ProfileEducation: React.FC = () => {
             <List
                 itemLayout="vertical"
                 size="small"
-                dataSource={POST_DETAILS}
+                dataSource={educations}
                 loadMore
                 renderItem={(item, index) => (
-                    <List.Item style={index === POST_DETAILS.length - 1 ? { borderBottom: 'none' } : undefined}>
+                    <List.Item style={index === educations.length - 1 ? { borderBottom: 'none' } : undefined}>
                         <Link href={''}>
                             <List.Item.Meta
                                 style={{ marginBottom: -17 }}
-                                avatar={<Avatar shape='square' size={50} src={item.avatarImage} />}
-                                title={<Paragraph style={{ lineHeight: '1rem' }}>{item.avatarProfileName}<br /><span style={{ fontWeight: 'lighter' }}>Course and degree</span></Paragraph>}
-                                description={<Paragraph type="secondary" style={{ marginTop: '-15px' }} >2024 - 2025</Paragraph>}
+                                avatar={<Avatar shape='square' size={50} />}
+                                title={<Paragraph style={{ lineHeight: '1rem' }}>{item.organization}<br /><span style={{ fontWeight: 'lighter' }}>{item.degree}</span></Paragraph>}
+                                description={<Paragraph type="secondary" style={{ marginTop: '-15px' }} >{`${formatYear(item.period[0])} - ${formatYear(item.period[1])}`}</Paragraph>}
                             />
                         </Link>
                     </List.Item>
