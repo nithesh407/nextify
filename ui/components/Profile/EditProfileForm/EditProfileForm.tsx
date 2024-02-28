@@ -59,13 +59,13 @@ const EditProfileForm: React.FC<{ initialValues: ProfileItem }> = ({
           const res = await imgResponse.json();
           values.imageUrl = res.imageUrl
         }
-        const response = await fetch('http://localhost:3000/api/v1/users/gytfugj/edit', {
+        const response = await fetch('http://localhost:3000/api/v1/users/edit', {
           method: 'POST',
           body: JSON.stringify(values)
         })
         const res = await response.json();
         console.log(res)
-        router.push('/Profile/gytfugj')
+        router.push('/Profile')
       })
       .catch((errorInfo) => {
         console.error("Validation failed:", errorInfo);

@@ -51,7 +51,7 @@ const ProfileComponent: React.FC<Profiletype> = ({ profileName, profileTag, prof
                 }
             />
 
-            <Button type="text" shape="circle" onClick={() => router.push("/Profile/gytfugj/edit")} style={{ float: 'right', marginTop: '-40px', height: '35px', width: '35px' }} icon={<EditOutlined style={{ fontSize: '25px' }} />} />
+            <Button type="text" shape="circle" onClick={() => router.push("/Profile/edit")} style={{ float: 'right', marginTop: '-40px', height: '35px', width: '35px' }} icon={<EditOutlined style={{ fontSize: '25px' }} />} />
 
 
             <Flex align="center">

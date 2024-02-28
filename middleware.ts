@@ -22,8 +22,10 @@ export function middleware(req: NextRequest) {
         return NextResponse.redirect('http://localhost:3000/Login')
     }
     if (req.nextUrl.pathname.startsWith('/Profile') && !authCookie) {
+
         return NextResponse.redirect('http://localhost:3000/Login')
     }
     return NextResponse.next()
 }
+
 

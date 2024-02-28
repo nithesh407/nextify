@@ -42,7 +42,7 @@ const menuItems: MenuItemType[] = [
         label: "Notifications",
     },
     {
-        key: `/Profile/${Cookies.get('user_id')}`,
+        key: '/Profile',
         icon: <UserOutlined />,
         label: "Profile",
     },
