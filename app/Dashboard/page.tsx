@@ -29,7 +29,6 @@ const userDetail = async () => {
 const Dashboard: React.FC = async () => {
     const POSTS = await postData()
     const { userDetails } = await userDetail()
-    console.log(userDetails)
     return (
         <Layout>
             <Row style={{ marginTop: 15 }}>

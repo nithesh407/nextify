@@ -4,7 +4,6 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
     try {
         const id = await req.json()
-        console.log(id)
 
         const userDetails = await UserModel.findById(id);
         if (!userDetails) {

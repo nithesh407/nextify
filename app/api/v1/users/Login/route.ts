@@ -14,7 +14,6 @@ export async function POST(req: NextRequest) {
                 message: "email or password is missing."
             }, { status: 404 })
         }
-        console.log(email, password)
         const user = await UserModel.findOne({ email, password })
 
         if (!user) {

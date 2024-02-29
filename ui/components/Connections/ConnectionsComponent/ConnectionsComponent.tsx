@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import { Avatar, Card, List } from 'antd';
 import styles from './connectionsComponent.module.scss'
-import { UserItem } from '@/util';
+import { UserItem } from '@/Interface';
 
 
 interface T {
@@ -42,13 +42,13 @@ const ConnectionsComponent: React.FC<T> = ({ category, appendData, data, loading
                     loading={loading}
                     dataSource={data}
                     renderItem={(item: UserItem) => (
-                        <List.Item key={item.email}>
+                        <List.Item key={item._id}>
                             <List.Item.Meta
-                                avatar={<Avatar style={{ width: 50, height: 50 }} src={item.picture.large} />}
-                                title={<a href="https://ant.design">{item.name.last}</a>}
+                                avatar={<Avatar style={{ width: 50, height: 50 }} src={item.imageUrl} />}
+                                title={<a href="https://ant.design">{item.userName}</a>}
                                 description={item.email}
                             />
-                            <div>{category === 'following' ? 'Following' : 'Follower'}</div>
+                            <div>{category === 'followings' ? 'Followings' : 'Follower'}</div>
                         </List.Item>
                     )}
                 />

@@ -33,16 +33,13 @@ export const authConfig: NextAuthOptions = {
                     if (!userExists) {
                         try {
                             const user = await UserModel.create({ userName: name, email })
-                            console.log(user)
                             setCookie('authenticated', userExists._id, COOKIE_EXPIRE_TIME)
                         } catch (err) {
-                            console.log(user)
                             message.error(`${err}`)
                         }
                     }
 
                 } catch (error) {
-                    console.log(error);
                     return false;
                 }
             }

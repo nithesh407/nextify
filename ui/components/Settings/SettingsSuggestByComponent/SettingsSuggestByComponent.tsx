@@ -31,7 +31,6 @@ const SettingsSuggestByComponent: React.FC = () => {
     };
 
     const onChange4 = ({ target: { value } }: RadioChangeEvent) => {
-        console.log('radio4 checked', value);
         setValue4(value);
     };
 

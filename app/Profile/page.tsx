@@ -16,7 +16,6 @@ const getUserDetails = async () => {
 
 const Profile: React.FC = async () => {
     const { userDetails } = await getUserDetails()
-    console.log(userDetails)
     return (
         <Layout>
             <Row style={{ marginTop: 15 }}>

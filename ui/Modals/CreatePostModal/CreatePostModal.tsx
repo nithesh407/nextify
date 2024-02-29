@@ -27,7 +27,6 @@ const CreatePostModal: React.FC<CreatePostModalProps> = ({ visible, handleCancel
     }, [visible]);
 
     const handleUploadChange = (info: any) => {
-        console.log(info)
         const { status, originFileObj } = info.file;
         if (status === 'done') {
             setUploadedFile(originFileObj);

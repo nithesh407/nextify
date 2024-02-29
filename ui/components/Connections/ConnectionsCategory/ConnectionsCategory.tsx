@@ -20,7 +20,7 @@ const ConnectionsCategory: React.FC<ConnectionsCategoryProps> = ({ handleCategor
         <Card style={{ width: '90%' }}>
             <Flex gap="small" align="flex-start" vertical>
                 <Flex gap="small" wrap="wrap">
-                    <Button type={category === 'following' ? 'primary' : 'default'} size='middle' onClick={() => categoryChange('following')}>
+                    <Button type={category === 'followings' ? 'primary' : 'default'} size='middle' onClick={() => categoryChange('followings')}>
                         Following <UserOutlined />
                     </Button>
                     <Button size='middle' type={category === 'followers' ? 'primary' : 'default'} onClick={() => categoryChange('followers')}>Followers <UserOutlined /></Button>

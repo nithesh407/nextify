@@ -3,14 +3,13 @@ import { ConnectionsSettings, ConnectionsPeople, ConnectionsCategory, Connection
 
 import { Row, Col } from "antd";
 import React, { useEffect, useState } from "react";
-
-import { UserItem } from "@/Interface/index";
+import Cookies from "js-cookie";
+import { UserItem } from "@/Interface";
 import { ConnectionsProfileComponentData } from "@/lib/utils/DUMMY_DATA";
 
 const Connections: React.FC = () => {
-
-    const [connectionsCategory, setconnectionsCategory] = useState<string>('following')
-    const fakeDataUrl = 'https://randomuser.me/api/?results=20&inc=name,gender,email,nat,picture&noinfo'
+    const userId = Cookies.get('user_id')
+    const [connectionsCategory, setconnectionsCategory] = useState<string>('followings')
     const [data, setData] = useState<UserItem[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
 
@@ -19,10 +18,11 @@ const Connections: React.FC = () => {
         setconnectionsCategory(value)
     }
     const appendData = () => {
-        fetch(fakeDataUrl)
+        fetch(`http://localhost:3000/api/v1/connections/${connectionsCategory}/${userId}`)
             .then((res) => res.json())
             .then((body) => {
-                setData(body.results);
+                const data = Object.values(body.data)
+                setData(data[2] as [])
                 setLoading(false);
             });
     }

@@ -49,7 +49,6 @@ const EditProfileForm: React.FC<{ initialValues: ProfileItem, id: string | undef
     form
       .validateFields()
       .then(async (values) => {
-        console.log(values)
         if (values.userImage.originFileObj) {
           formData.append('file', values.userImage.originFileObj)
           const imgResponse = await fetch('http://localhost:3000/api/v1/s3/users', {
@@ -65,7 +64,6 @@ const EditProfileForm: React.FC<{ initialValues: ProfileItem, id: string | undef
           body: JSON.stringify(values)
         })
         const res = await response.json();
-        console.log(res)
         router.push('/Profile')
       })
       .catch((errorInfo) => {
