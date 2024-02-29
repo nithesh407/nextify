@@ -6,8 +6,8 @@ export async function PATCH(req: NextRequest) {
     try {
         await ConnectDatabase();
         const data = await req.json()
-        const currUserEmail = data.email
-        const user = await UserModel.findOneAndUpdate({email:currUserEmail}, data,{new:true})
+        const { id, ...details } = data
+        const user = await UserModel.findByIdAndUpdate(id, details)
         return NextResponse.json({
             status: 'success',
             message: 'User details saved successfully',

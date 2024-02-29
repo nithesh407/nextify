@@ -27,8 +27,8 @@ const formItemLayout = {
   },
 };
 
-const EditProfileForm: React.FC<{ initialValues: ProfileItem }> = ({
-  initialValues,
+const EditProfileForm: React.FC<{ initialValues: ProfileItem, id: string | undefined }> = ({
+  initialValues, id
 }) => {
   const [form] = Form.useForm();
   const router = useRouter()
@@ -59,6 +59,7 @@ const EditProfileForm: React.FC<{ initialValues: ProfileItem }> = ({
           const res = await imgResponse.json();
           values.imageUrl = res.imageUrl
         }
+        values.id = id
         const response = await fetch('http://localhost:3000/api/v1/users/edit', {
           method: 'PATCH',
           body: JSON.stringify(values)

@@ -1,8 +1,8 @@
 'use client'
-
 import { EditProfileForm } from "@/ui/components";
 import { ProfileItem } from "@/Interface";
 import moment from "moment";
+import Cookies from "js-cookie";
 
 const initialValues: ProfileItem = {
   userImage: {
@@ -44,8 +44,9 @@ const initialValues: ProfileItem = {
 
 
 const EditProfilePage: React.FC = () => {
+  const id: string | undefined = Cookies.get('user_id')
   return (
-    <EditProfileForm initialValues={initialValues} />
+    <EditProfileForm initialValues={initialValues} id={id} />
   )
 }
 

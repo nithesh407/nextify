@@ -26,8 +26,8 @@ const Profile: React.FC = async () => {
                             data={userDetails}
                         />
                         <ProfileActivity />
-                        <ProfileEducation educations = {userDetails.educations} />
-                        <ProfileSkills skills = {userDetails.skills}/>
+                        <ProfileEducation educations={userDetails.educations} />
+                        <ProfileSkills skills={userDetails.skills} />
                     </Flex>
 
                 </Col>
