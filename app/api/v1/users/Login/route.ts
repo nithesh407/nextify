@@ -2,9 +2,11 @@ import { setCookie } from "@/lib"
 import { UserModel } from "@/server/models"
 import { NextRequest, NextResponse } from "next/server"
 import { COOKIE_EXPIRE_TIME } from "@/server/config"
+import { ConnectDatabase } from "@/lib"
 
 export async function POST(req: NextRequest) {
     try {
+        await ConnectDatabase()
         const { email, password } = await req.json()
         if (!email || !password) {
             return NextResponse.json({

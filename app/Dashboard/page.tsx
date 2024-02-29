@@ -1,5 +1,6 @@
 import { HomeProfile, CreatePost, PostsComponent, HomeCalender } from "@/ui/components";
 import { Row, Col, Layout } from "antd";
+import { cookies } from "next/headers";
 import React from "react";
 
 
@@ -12,23 +13,37 @@ const postData = async () => {
     const posts = await response.json()
     return posts.data
 }
+const userDetail = async () => {
+    const id = cookies().get('user_id')?.value
+    const response = await fetch("http://localhost:3000/api/v1/users/getUser",
+        {
+            method: 'POST',
+            body: JSON.stringify(id),
+            cache: 'no-store'
+        }
+    )
+    const user = await response.json()
+    return user
+}
 
 const Dashboard: React.FC = async () => {
     const POSTS = await postData()
+    const { userDetails } = await userDetail()
+    console.log(userDetails)
     return (
         <Layout>
             <Row style={{ marginTop: 15 }}>
                 <Col span={5} offset={1}>
                     <div style={{ position: 'sticky', top: 80 }}>
                         <HomeProfile
-                            profileName="Lana Del rey"
-                            profileTag="@lanadelrey.idk"
-                            profileImage="https://imgv3.fotor.com/images/slider-image/A-clear-close-up-photo-of-a-woman.jpg"
-                            profileDescription="I'm passionate in singing. I like the way I'm. Going through the flow"
-                            linkedInURL=""
-                            githubURL=""
-                            twitterURL=""
-                            instagramURL=""
+                            profileName={userDetails.userName}
+                            profileTag={`@${userDetails.email}`}
+                            profileImage={userDetails.imageUrl}
+                            profileDescription={userDetails.userDescription}
+                            linkedInURL={userDetails.linkedINURL}
+                            githubURL={userDetails.githubURL}
+                            twitterURL={userDetails.twitterURL}
+                            instagramURL={userDetails.instagramURL}
                         />
                     </div>
                 </Col>
