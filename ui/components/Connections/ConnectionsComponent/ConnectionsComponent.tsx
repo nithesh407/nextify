@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import { Avatar, Card, List } from 'antd';
 import styles from './connectionsComponent.module.scss'
-import { UserItem } from '@/util';
+import { UserItem } from '@/Interface';
 
 
 interface T {
