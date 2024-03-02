@@ -1,1 +1,1 @@
-export const DB_URL = process.env.DIRECT_DATABASE_URL
+export const DB_URL = process.env.NEXT_PUBLIC_DATABASE_URL
